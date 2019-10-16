@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_180907) do
+ActiveRecord::Schema.define(version: 2019_10_16_204505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "biometrics", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "phone", null: false
+    t.date "birthday", null: false
+    t.float "height", null: false
+    t.integer "starting_weight", null: false
+    t.integer "current_weight", null: false
+    t.integer "goal_weight", null: false
+    t.text "notes"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,14 +34,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_180907) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.string "phone", null: false
-    t.date "birthday", null: false
-    t.float "height", null: false
-    t.integer "starting_weight", null: false
-    t.integer "current_weight"
-    t.integer "goal_weight", null: false
-    t.text "notes"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
