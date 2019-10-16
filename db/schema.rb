@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_204505) do
     t.date "birthday", null: false
     t.float "height", null: false
     t.integer "starting_weight", null: false
-    t.integer "current_weight", null: false
+    t.integer "current_weight"
     t.integer "goal_weight", null: false
     t.text "notes"
     t.datetime "created_at", null: false
