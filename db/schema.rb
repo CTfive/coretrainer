@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_10_16_204505) do
     t.integer "current_weight", null: false
     t.integer "goal_weight", null: false
     t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
