@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :biometric do
+  factory :user do
     sequence :email do |n|
       "dummbemail#{n}@gmail.com"
     end
