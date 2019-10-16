@@ -9,6 +9,7 @@ class CreateBioMetricsTable < ActiveRecord::Migration[5.2]
       t.integer :current_weight, null: false
       t.integer :goal_weight, null: false
       t.text    :notes
+      t.timestamps
     end
   end
 end
