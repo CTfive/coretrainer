@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :profile do
+    
+  end
+
   factory :user do 
     sequence :email do |n|
       "dummbemail#{n}@gmail.com"
