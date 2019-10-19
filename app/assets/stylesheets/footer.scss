@@ -1,0 +1,45 @@
+html {
+    height: 100%;
+  }
+  
+  body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #flex-content-container {
+    flex: 1;
+  }
+
+  #footer {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica;
+    padding: 10px 0px;
+    margin-top: 30px;
+    font-weight: 100;
+  }
+
+  #footer a {
+    color: white;
+    font-weight: 100;
+  }
+
+  .social-button {
+    margin: 4px;
+  }
+
+  .social a:hover {
+    text-decoration: none;
+  }
+ 
+  #footer b {
+    color: white;
+    font-weight: 100;
+    margin: 100px;
+  }
+ 
+  

@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<div id="flex-content-container">
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -40,6 +41,44 @@
 
   <!-- Render View -->
   <%= yield %>
+</div>
+ <div id="footer">
+    <div class="row">
+      <div class="col-12 col-sm-3">
+        <b>Trainers</b>
+        <br />
+      </div>
+      <div class="col-12 col-sm-3">
+        <b>Info</b>
+        <br />
+      </div>
+      <div class="col-12 col-sm-3 text-center">
+        <b>Developers</b>
+        <br />
+         <%= link_to 'Kate github link here', '' %>        
+        <br />
+         <%= link_to 'Jess github link here', '' %>         
+        <br />
+         <%= link_to 'Michael github link here', '' %>        
+        <br />
+         <%= link_to 'Zach github link here', '' %>
+        <br />
+        <%= link_to 'Team github link here', '' %>
+        <br />
+        
+        
+
+      </div>
+      <div class="col-12 col-sm-3 social">
+  <b>Social</b>
+  <br />
+  <br />
+  
+</div>
+    </div>  
+ 
+      </div>
+  </div>
 </body>
 
 
