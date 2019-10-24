@@ -5,8 +5,8 @@
 
 
 
-user1 = User.create(name: 'Michael', email: 'mr.enviro@gmail.com', password: 'password', role: 'admin' )
-user2 = User.create(name: 'Zach', email: 'zach2487@gmail.com', password: 'password', role: 'admin' )
-user3 = User.create(name: 'Kate', email: 'kbutkus@gmail.com', password: 'password', role: 'admin' )
-user4 = User.create(name: 'Jessi', email: 'orgkleen@gmail.com ', password: 'password', role: 'admin' )
-user5 = User.create(name: 'Ariana', email: 'ariana.cukurs1@gmail.com', password: 'password', role: 'admin' )
+user1 = Admin.create(name: 'Michael', email: 'mr.enviro@gmail.com', password: 'password')
+user2 = Trainer.create(name: 'Zach', email: 'zach2487@gmail.com', password: 'password')
+user3 = Client.create(name: 'Kate', email: 'kbutkus@gmail.com', password: 'password')
+user4 = Trainer.create(name: 'Jessi', email: 'orgkleen@gmail.com ', password: 'password')
+user5 = Client.create(name: 'Ariana', email: 'ariana.cukurs1@gmail.com', password: 'password')

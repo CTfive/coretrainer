@@ -1,2 +1,3 @@
-class Client < ApplicationRecord
+class Client < User
+  has_one :trainer
 end
