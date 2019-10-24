@@ -1,16 +1,4 @@
 FactoryBot.define do
-  factory :admin do
-    
-  end
-
-  factory :trainer do
-    
-  end
-
-  factory :client do
-    
-  end
-
   factory :profile do
     
   end
