@@ -5,7 +5,7 @@
 
 
 
-user1 = User.create(name: 'Michael', email: 'mr.enviro@gmail.com', password: 'password', role: 'admin' )
+user1 = User.create(name: 'Michael', email: 'mr.enviro@gmail.com', password: 'password', type: 'admin' )
 user2 = User.create(name: 'Zach', email: 'zach2487@gmail.com', password: 'password', role: 'admin' )
 user3 = User.create(name: 'Kate', email: 'kbutkus@gmail.com', password: 'password', role: 'admin' )
 user4 = User.create(name: 'Jessi', email: 'orgkleen@gmail.com ', password: 'password', role: 'admin' )

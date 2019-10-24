@@ -1,4 +1,4 @@
-class Profile < ApplicationRecord
-  has_many :user
+class Profile < User
+  belongs_to :user
 
 end
