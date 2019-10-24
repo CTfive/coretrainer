@@ -14,12 +14,7 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
-      <%= f.select :role,
-                  options_for_select(role_options), {
-                    prompt: "Choose Role"
-                  },
-                  required: true,
-                  autofocus: true %>
+      <%= f.select :role, options_for_select(role_options), { prompt: 'Choose Role' } %>
                   <br><br>
       <%= f.input :password,
                   required: true,
