@@ -2,8 +2,8 @@ module UsersHelper
 
 def role_options
     [
-        ['Client'],
-        ['Trainer']
+        ['client'],
+        ['trainer']
     ]
 end
 
