@@ -16,13 +16,14 @@ ActiveRecord::Schema.define(version: 2019_10_24_010941) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "clients", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
+    t.float "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_010941) do
   end
 
   create_table "trainers", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
