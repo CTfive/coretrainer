@@ -1,8 +1,8 @@
 @import "bootstrap";
-@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Abel|Montserrat|Raleway&display=swap');
 
 .navbar {
-  font-family: "Helvetica Neue", Helvetica;
+  font-family: 'Abel', sans-serif;
   font-weight: 400;
   letter-spacing: 4px;
   box-shadow: 0px 1px 3px #2a2a2a;
@@ -10,8 +10,8 @@
 }
 
 .navbar-inverse a.navbar-brand {
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight: 200;
+  font-family: 'Abel', sans-serif;
+  font-weight: 250;
   color: white;
 }
 
@@ -35,13 +35,13 @@ h1, h2, h3, h4, h5, h6, .navbar {
 }
 
 .frosty h1 {
-  font-family: "Helvetica Neue", Helvetica;
+  font-family: 'Abel', sans-serif;
   font-weight: 100;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
 
 .frosty h2 {
-  font-family: "Helvetica Neue", Helvetica;
+  font-family: 'Abel', sans-serif;
   font-weight: 200;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6, .navbar {
 }
 .btn-success {
   color: white;
-  background-color: #666666;
+  background-color: #317da3;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 300;
@@ -85,18 +85,47 @@ h1, h2, h3, h4, h5, h6, .navbar {
   padding-bottom: 5%;
   margin-top: 0%;
   margin-bottom: 5%;
-  color: #165e82;
+  border-radius: 6%;
+  color: #317da3;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-weight: bold;
+  font-size: 78px;
+}
+
+h2{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 29px; 
+}
+
+p  {
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica;
+  font-family: 'Open Sans', sans-serif;
   background: image_url('dark_wood.png');
 }
 
-footer {
-  border-top: solid black 1px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  background-color: #292b2c;
-  color: white
-}
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+ }
+.checkbox_container input {
+  display: inline;
+ }
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
