@@ -1,4 +1,16 @@
 FactoryBot.define do
+  factory :client do
+    
+  end
+
+  factory :trainer do
+    
+  end
+
+  factory :role do
+    
+  end
+
   # factory :user do
     
   # end
