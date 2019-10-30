@@ -36,15 +36,16 @@
             <li class="nav-item">
               <%= link_to 'Sign up!', new_user_registration_path, class: 'nav-link' %>
             </li>
-             <li class="nav-item">
+            <li class="nav-item">
             <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
             </li>
           <% end %>
         </ul>
       </div>
     </nav>
+    <br>
 
-    <!-- Alerts for Devise -->
+    <!-- Devise Alerts -->
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>
@@ -54,23 +55,14 @@
 
     <!-- Render View -->
     <%= yield %>
-
-    <!-- Flexbox Footer-->
-    <br><br>
-    <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-3 text-center">
-            <b>Developer Credits</b>
-            <br>
-            <%= link_to 'Meet the Team', "https://github.com/CTfive" %>
-            <br>
-            <a href="https://github.com/CTfive/coretrainer">View Repository</a>
-            <br>
-          </div>
-        </div>
+    
+    <!-- Footer -->
+    <footer class="footer text-center font-small cyan darken-3">
+      <!-- Credits -->
+      <div class="https://github.com/CTfive/coretrainer">Made with ❤ by
+        <a href="https://github.com/CTfive"> CTFive</a>
       </div>
-    </div>
+    </footer>
   
   <!-- End of Body -->
   </body>

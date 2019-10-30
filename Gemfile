@@ -80,3 +80,10 @@ end
 
 gem 'simple_form'
 
+# Fontawesome Icon support
+gem "font-awesome-rails"
+
+# Enable user role creation
+gem 'cancancan'
+gem 'rolify'
+
