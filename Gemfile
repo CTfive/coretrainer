@@ -30,9 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 
-# MD - calendar gem
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
+# # MD - calendar gem
+# gem 'fullcalendar-rails'
+# gem 'momentjs-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -78,6 +78,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
+# Enable easier form creation
 gem 'simple_form'
 
 # Fontawesome Icon support
