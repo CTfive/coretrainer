@@ -1,0 +1,36 @@
+<br />
+
+<div class="booyah-box col-10 offset-1">
+  <h1>Client Dashboard</h1>
+</div>
+
+<%= simple_form_for @Client do |form| %>
+<%= form.input :height, as: t.float %>
+<%= form.input :birthday, as: t.date %>
+<%= form.input :injuries, as: t.text %>
+<%= form.input :athletic_background, as: t.text %>
+<%= form.input :goals, as: t.text %>
+<%= form.input :workout_history, as: t.text %>
+<% end %>
+
+<%= simple_form_for @Client-Check-In do |form| %>
+<%= form.input :weight, as: t.float %>
+<%= form.input :mood, as: t.string %>
+<%= form.input :notes, as: t.text %>
+<%= form.input t.date_time, as: t.date %>
+<%= form.input t.text :notes, as: t.string %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+    <i class="icon-ok icon-white"></i> Check-in 
+  <% end %>
+
+  <%= simple_form_for @Add-Workout do |form| %>
+<%= form.input :exersize, as: t.string %>
+<%= form.input :sets, as: t.integer %>
+<%= form.input :reps, as: t.integer %>
+<%= form.input t.weight, as: t.float %>
+<%= form.input t.date_time, as: t.date %>
+<%= form.input t.text :notes, as: t.string %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+    <i class="icon-ok icon-white"></i> Add-workout 
+  <% end %>
+  
