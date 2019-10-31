@@ -1,5 +1,5 @@
-class Client < User
-	has_and_belongs_to_many :trainers
+class Client < ApplicationRecord
+	has_many :trainers, through: :roles
 
 	resourcify
 end
