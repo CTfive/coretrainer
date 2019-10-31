@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     client = current_user.roles.create(client_params)
-      if current_user.has_role? "trainer"
+      if current_user.has_role? "client"
         client.valid?
         redirect_to root_path
       else
