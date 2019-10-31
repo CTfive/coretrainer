@@ -31,14 +31,20 @@ ActiveRecord::Schema.define(version: 2019_10_31_012653) do
   end
 
   create_table "roles", force: :cascade do |t|
+    t.string "client"
+    t.string "trainer"
+    t.string "admin"
     t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
+    t.integer "trainer_id"
+    t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client", "client_id"], name: "index_roles_on_client_and_client_id"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+    t.index ["trainer", "trainer_id"], name: "index_roles_on_trainer_and_trainer_id"
   end
 
   create_table "trainers", force: :cascade do |t|
