@@ -15,7 +15,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
+    client = Client.new
   end
 
   # GET /clients/1/edit
@@ -25,16 +25,20 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.new(client_params)
-
-    respond_to do |format|
-      if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        format.json { render :show, status: :created, location: @client }
+    client = current_user.roles.create(client_params)
+      if current_user.has_role? "trainer"
+        client.valid?
+        redirect_to root_path
       else
-        format.html { render :new }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+        render :new, status: :unprocessable_entity
+    # respond_to do |format|
+    #   if client.save
+    #     format.html { redirect_to @client, notice: 'Client was successfully created.' }
+    #     format.json { render :show, status: :created, location: @client }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @client.errors, status: :unprocessable_entity }
+    #   end
     end
   end
 
@@ -65,7 +69,7 @@ class ClientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      client = Client.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
