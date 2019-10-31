@@ -55,8 +55,9 @@ h1, h2, h3, h4, h5, h6, .navbar {
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
   background: #f4f3f3;
-  border: 1ps solid #ccc;
+  border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  border-radius: 3px;
   padding: 10px;
 }
 
@@ -117,20 +118,22 @@ body {
   background: image_url('dark_wood.png');
 }
 
-.checkbox_container {
-  display: inline-block;
-  vertical-align: -1px;
-  margin: 5px;
- }
-.checkbox_container input {
-  display: inline;
- }
-.checkbox_container .collection_check_boxes{
-  display: inline;
-  vertical-align: -5px;
- }
-
  .feature {
    margin: 0 5% 5% 0;
    padding: 5%;
+ }
+
+ .form-actions {
+  text-align: center;
+  border-top: solid darkorange 2px;
+  padding-top: 6%;
+ }
+
+ .form-inputs {
+  margin: 1%;
+  padding: 1%;
+ }
+
+ .checkbox {
+  text-align: center;
  }

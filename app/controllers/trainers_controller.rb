@@ -24,8 +24,7 @@ class TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create
-    @trainer = Trainer.new(trainer_params)
-
+    @trainer = Trainer.create(trainer_params)
     respond_to do |format|
       if @trainer.save
         format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }
@@ -69,6 +68,8 @@ class TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.fetch(:trainer, {})
+      params.require(:trainer).permit(:athletic_background, :started_training, :specialties, :bio,
+                                     :availability, :location, :certificate_id,
+                                     :other_credentials)
     end
 end

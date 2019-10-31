@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  resources :clients
-  resources :trainers
-  root 'static_pages#index'
+  devise_for :users
+  	
+ 	namespace :clients do
+ 		resources :workouts
+ 		resources :checkpoint
+ 	end
 
-   devise_for :users 
+ 	namespace :trainers do
+ 		resources :plans
+ 		resources :schedule
+ 	end
+
+  root 'static_pages#index'
   
   resource :dashboard, only: :show
 end
