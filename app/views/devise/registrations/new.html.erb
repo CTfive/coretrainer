@@ -14,8 +14,8 @@
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
          <% Role.all.each do |role| %>
-          <%= f.checkbox :input_roles, {multiple: true}, role.trainer, role.client, nil %>
-          <%= role.trainer %>
+          <%= f.checkbox :input_roles, {multiple: true}, role.name, nil %>
+          <%= role.name %>
         <% end %>
       <%= f.input :username,
                   required: true,
