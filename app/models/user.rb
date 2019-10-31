@@ -9,4 +9,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+	private
+
+	def set_default_role
+    add_role(:client) if self.roles.blank?
+  end
 end

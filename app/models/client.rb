@@ -1,5 +1,5 @@
 class Client < User
-	has_and_belongs_to_many :trainers
+	belongs_to :trainer
 
 	resourcify
 end
