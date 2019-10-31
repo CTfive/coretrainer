@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  	
- 	namespace :clients do
+  
+
+ 	resources :clients do
  		resources :workouts
- 		resources :checkpoint
+ 		resources :checkpoints
  	end
 
- 	namespace :trainers do
+ 	resources :trainers do
  		resources :plans
- 		resources :schedule
+ 		resources :schedules
  	end
 
   root 'static_pages#index'
