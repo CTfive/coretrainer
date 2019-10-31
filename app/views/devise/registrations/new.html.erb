@@ -13,10 +13,6 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
-         <% Role.all.each do |role| %>
-          <%= f.checkbox :input_roles, {multiple: true}, role.name, nil %>
-          <%= role.name %>
-        <% end %>
       <%= f.input :username,
                   required: true,
                   autofocus: true,
@@ -28,8 +24,13 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <div class="checkbox booyah-box">
+        <%= f.association :roles,   as: :boolean, 
+                  label: "I'm a Trainer",
+                  hint: "Checking this box will register you as a Personal Trainer, at this time, it's irreversible."%>
+      </div>
+      <br>
     </div>
-
     <div class="form-actions">
       <%= f.button :submit, "Sign up" %>
     </div>
