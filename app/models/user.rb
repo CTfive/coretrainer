@@ -3,7 +3,7 @@ class User < ApplicationRecord
   attr_accessor :input_roles, :trainer_role, :client_role, :admin_role
 
   
-  #after_initialize :set_default_role, :if => :new_record?
+  # after_initialize :set_default_role, :if => :new_record?
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, and :omniauthable
