@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  attr_accessor :input_roles
 
   
   #after_initialize :set_default_role, :if => :new_record?
@@ -9,7 +10,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-    # has_many :discussions, dependent: :destroy
-    # has_many :channels, through: :discussions
+  # has_many :trainers, through: :roles
+  # has_many :clients, through: :roles
+  # has_many :roles
+
+  def input_roles
+    self.input_roles.to_a["trainer", "client"]
+  end
 
 end
