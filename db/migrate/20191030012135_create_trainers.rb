@@ -8,8 +8,7 @@ class CreateTrainers < ActiveRecord::Migration[5.2]
     	t.text :availability
     	t.string :location, null: false
     	t.string :certificate_id, null: false
-    	t.text :other_credentials
-
+			t.text :other_credentials
       t.timestamps
     end
   end

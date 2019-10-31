@@ -7,9 +7,11 @@ class Ability
      
       user ||= User.new # guest user (not logged in)
       if user.has_role? :admin
-        can :manage, :all
-      else
-        can :read, :all
+        can :manage, Trainer
+      elsif user.has_role? :trainer
+        can :crud, Trainer
+      elsif user.has_role? :client
+        can :crud, Client
       end
       
     # See the wiki for details:

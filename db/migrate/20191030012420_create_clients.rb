@@ -8,7 +8,7 @@ class CreateClients < ActiveRecord::Migration[5.2]
   		t.text :goals, null: false
   		t.text :athletic_background, null: false
   		t.text :work_history, null: false
-  		t.string :location, null: false
+			t.string :location, null: false
 
       t.timestamps
     end

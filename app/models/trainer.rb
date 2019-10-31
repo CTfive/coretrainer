@@ -1,5 +1,5 @@
-class Trainer < User
-	has_many :clients
+class Trainer < ApplicationRecord
+	has_many :clients, through: :roles
 
 	resourcify
 end
