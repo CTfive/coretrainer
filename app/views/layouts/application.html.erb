@@ -8,7 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!-- Body-->
   <body>
+    
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
       <!-- Toggler Button -->
@@ -23,7 +25,7 @@
           
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'My Dashboard', "#", class: 'nav-link' %>
+              <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
               <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -35,15 +37,13 @@
             <li class="nav-item">
               <%= link_to 'Sign up!', new_user_registration_path, class: 'nav-link' %>
             </li>
-             <li class="nav-item">
-            <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
-            </li>
           <% end %>
         </ul>
       </div>
     </nav>
+    <br>
 
-    <!-- Alerts for Devise -->
+    <!-- Devise Alerts -->
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>
@@ -53,46 +53,15 @@
 
     <!-- Render View -->
     <%= yield %>
-
-    <!-- Flexbox Footer-->
-    <br><br>
-    <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-3 text-center">
-            <b>Clients</b>
-            <br>        
-            <%= link_to 'My Dashboard', dashboard_path, class: 'footer-link' %>
-            <br>
-            <%= link_to 'Book Session', "#" %>
-            <br>
-          </div>
-          <div class="col-12 col-sm-3 text-center">
-            <b>Trainers</b>
-            <br>
-            <%= link_to 'My Dashboard', dashboard_path, class: 'footer-link' %>
-            <br>
-            <%= link_to 'Update Schedule', '#' %>
-          </div>
-          <div class="col-12 col-sm-3 text-center">
-            <b>Resources</b>
-            <br>
-            <a href="https://google.com">Google</a>
-            <br>
-            <a href="https://codeschool.com">Code School</a>
-            <br>
-          </div>
-          <div class="col-12 col-sm-3 text-center">
-            <b>Developer Credits</b>
-            <br>
-            <%= link_to 'Meet the Team', "https://github.com/CTfive" %>
-            <br>
-            <a href="https://github.com/CTfive/coretrainer">View Repository</a>
-            <br>
-          </div>
-        </div>
+    
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <!-- Credits -->
+      <div class="https://github.com/CTfive/coretrainer">Made with ❤ by
+        <a href="https://github.com/CTfive"> CTFive</a>
       </div>
-    </div>
-    <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+    </footer>
+  
+  <!-- End of Body -->
   </body>
 </html>
