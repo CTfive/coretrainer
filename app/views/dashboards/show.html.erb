@@ -3,7 +3,7 @@
 <div class="booyah-box col-10 offset-1">
   <h1>Client Dashboard</h1>
 </div>
-
+</div>
 <%= simple_form_for @Client do |form| %>
 <%= form.input :height, as: t.float %>
 <%= form.input :birthday, as: t.date %>
@@ -33,4 +33,3 @@
   <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
     <i class="icon-ok icon-white"></i> Add-workout 
   <% end %>
-

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
   <title>Coretrainer</title>
   <%= csrf_meta_tags %>
@@ -80,7 +81,69 @@
       </div>
   </div>
 </body>
+=======
+  <head>
+    <title>Coretrainer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+>>>>>>> a9f30229deb17ad52911a6a035f4f30e28b5391e
 
+  <!-- Body-->
+  <body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
+      <!-- Toggler Button -->
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Brand -->
+      <%= link_to 'Core Trainer', root_path, class: 'navbar-brand' %>
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav text-right">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign up!', new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <br>
 
+    <!-- Devise Alerts -->
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
+    <!-- Render View -->
+    <%= yield %>
+    
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <!-- Credits -->
+      <div class="https://github.com/CTfive/coretrainer">Made with ❤ by
+        <a href="https://github.com/CTfive"> CTFive</a>
+      </div>
+    </footer>
+  
+  <!-- End of Body -->
+  </body>
 </html>
