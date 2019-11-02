@@ -69,6 +69,7 @@ h1, h2, h3, h4, h5, h6, .navbar {
 img {
   max-width: 100%;
   max-height: 100%;
+  vertical-align: center;
 }
 
 .btn {
@@ -117,12 +118,27 @@ p  {
 body {
   font-family: 'Open Sans', sans-serif;
   background: image_url('dark_wood.png');
+  margin-bottom: 60px;  /* Margin bottom by footer height */
+}
+
+html {  /* Imported with footer settings */
+  position: relative; 
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: grey;
 }
 
 
 .form-actions {
   text-align: center;
-  border-top: solid darkorange 2px;
+  border-top: solid darkorange 2px; /* Design line above Devise forms */
   padding-top: 6%;
  }
 
@@ -132,19 +148,14 @@ body {
  }
 
 .checkbox {
-  text-align: center;
+  text-align: center; /* Moves custom field for "I'm a Trainer checkbox" in views/devise/registrations/new.html.erb */
  }
 
 .form-check {
-  text-align: center;
+  text-align: center; /* Moves allcheck-boxes within the Devise forms */
 }
 
- footer {
-  margin: 1%;
-  padding: 1%;
-  color: white;
- }
 
- .devise-links {
-  text-align: right;
+.devise-links {
+  text-align: right;  /* effects Devise form pages: moves login/signup form links to the right - MD */
  }

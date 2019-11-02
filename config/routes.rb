@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+  resource :dashboard, only: [:show]
+  root 'static_pages#index'
 
  	resources :clients do
  		resources :workouts
- 		resources :checkpoints
+ 		resources :checkins
  	end
 
  	resources :trainers do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
  		resources :schedules
  	end
 
-  root 'static_pages#index'
   
-  resource :dashboard, only: :show
+  
+  
 end
