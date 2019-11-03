@@ -126,11 +126,9 @@ body {
   margin-bottom: 60px;  /* Margin bottom by footer height */
 }
 
-html {  
-  position: relative; /* Imported with footer settings */
+html {  /* Imported with footer settings */
+  position: relative; 
   min-height: 100%;
-
-  scroll-behavior: smooth; /* Imported with 'learn more' scroll down settings */
 }
 
 .footer {
