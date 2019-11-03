@@ -73,14 +73,15 @@ img {
 }
 
 .btn {
-  border-radius: 0;
+  border-radius: 3;
 }
-.btn-success {
+
+.btn-start {
   color: white;
   background-color: #317da3;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   font-family: "Helvetica Neue", Helvetica;
-  font-weight: 300;
+  font-weight: 400;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
 
