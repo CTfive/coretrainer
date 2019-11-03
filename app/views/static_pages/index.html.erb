@@ -10,7 +10,7 @@
         <h2>A tool for Personal Trainers and Clients to connect</h2>
         <br />
         <div class="btn">
-        <%= link_to 'Learn More', "#", class: 'btn btn-start' %>
+        <a href="#down" class="btn btn-start">Learn More</a>
         <br /><br />
       </div>
     </div>
@@ -18,7 +18,7 @@
   </div>
 
   <!-- 3 Feature Box -->
-  <div class="row feature text-center">
+  <div class="col-12 row feature text-center">
     <!-- Left Box -->
     <div class="col-12 col-sm">
       <h3>Record Workouts</h3>
@@ -42,7 +42,12 @@
   </div>
 </div>
 
-<img src="https://images.unsplash.com/photo-1535743686920-55e4145369b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80">
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-<img src="https://images.unsplash.com/photo-1517963628607-235ccdd5476c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80">
+<div class="frosty col-10 offset-1 text-center">
+  <img src="https://images.unsplash.com/photo-1535743686920-55e4145369b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80">
+  <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+  <img src="https://images.unsplash.com/photo-1517963628607-235ccdd5476c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80">
+  <br>
+</div>
+<br>
+<div id="down" class="col-10 offset-1"><%= link_to "Sign up and choose your role today", new_user_registration_path, class: 'btn-lg btn btn-warning button btn-block'%></div>
 <br>
