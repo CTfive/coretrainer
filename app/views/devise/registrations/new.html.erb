@@ -24,12 +24,6 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <div class="checkbox booyah-box">
-        <%= f.association :roles,   as: :boolean, 
-                  label: "I'm a Trainer",
-                  hint: "Checking this box will register you as a Personal Trainer, at this time, it's irreversible."%>
-      </div>
-      <br>
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Sign up" %>
@@ -38,3 +32,4 @@
 
    <div class="devise-links"><%= render "devise/shared/links" %></div>
 </div>
+<br>
