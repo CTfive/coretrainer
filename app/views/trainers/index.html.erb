@@ -31,25 +31,3 @@
 
 
 <h3 style="text-align:center; color:purple;">Implement your trainer dashboard ideas below this line by working in the views/trainers/index.html.erb file</h3>
-<%= simple_form_for @Trainer, url: new_trainer_vertical_path do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :name %>
-
-  <%= f.input :email, input_html: { autocomplete: 'email' } %>
-
-  <%= f.input :password, input_html: { autocomplete: 'current-password' } %>
-
-  <%= f.input :personal_athletic_background %>
-
-  <%= f.input :years_in_practice %>
-
-  <%= f.input :specialties %>
-
-  <%= f.input :favorite_exersize_modality %>
-
-  <%= f.input :ACE_certificate_number %>
-
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-<% end %>
