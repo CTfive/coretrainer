@@ -3,6 +3,8 @@ class RolifyCreateRoles < ActiveRecord::Migration[5.2]
     create_table(:roles) do |t|
       t.string :name
       t.references :resource, :polymorphic => true
+      t.integer :trainer_id
+      t.integer :client_id
       t.timestamps
     end
 

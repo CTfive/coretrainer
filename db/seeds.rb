@@ -45,3 +45,4 @@ end
 # t.string "location"
 # t.string "certificate_id"
 # t.text "other_credentials"
+
