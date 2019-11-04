@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resource :dashboard, only: :show
+  resource :dashboard, only: [:show]
   root 'static_pages#index'
 
  	resources :clients do
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
  		resources :schedules
  	end
 
-  resources :roles
+  
+  
   
 end

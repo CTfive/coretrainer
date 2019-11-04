@@ -7,8 +7,4 @@ class ApplicationController < ActionController::Base
 			devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :username, input_roles: []])
 			devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username])
 		end
-
-		def user_params
-			permit.require(:user).permit(:name, :username, :email, {:role_ids: []})
-		end
 end
