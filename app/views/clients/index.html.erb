@@ -31,3 +31,60 @@
 
 
 <h3 style="text-align:center; color:purple;">Implement your client dashboard ideas below this line by working in the views/clients/index.html.erb file and found at http://localhost:3030/clients</h3>
+<%= simple_form_for @client, url: new_client_vertical_path do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.input :email, input_html: { autocomplete: 'email' } %>
+
+  <%= f.input :password, input_html: { autocomplete: 'current-password' } %>
+
+  <%= f.input :injuries %>
+
+  <%= f.input :athletic_background %>
+
+  <%= f.input :goals %>
+
+  <%= f.input :workout_history %>
+
+  <%= f.input :birthday %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+<% end %>
+
+<%= simple_form_for @Client-Check-In do |f| %>
+<%= f.input :weight %>
+
+<%= f.input :mood %>
+
+<%= f.input :notes %>
+
+<%= f.input :date_time %>
+
+<%= f.input :notes %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i> Check-in
+<% end %>
+
+<%= simple_form_for @Add-Workout do |f| %>
+<%= f.input :exersize %>
+
+<%= f.input :sets %>
+
+<%= f.input :reps %>
+
+<%= f.input :weight %>
+
+<%= f.input :date_time %>
+
+<%= f.input :notes %>
+
+<%= f.input :workout_intensity, as: :range %>
+
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i> Add-workout
+<% end %>
