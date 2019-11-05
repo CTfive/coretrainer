@@ -7,9 +7,10 @@
         <br />
         <h1>Core Trainer</h1>
         <br />
-        <h2>A tool for Personal Trainers and Clients to connect</h2>
+        <h2>A tool for Personal Trainers and Members to connect</h2>
         <br />
         <div class="btn">
+        <%= link_to 'Members', new_user_registration_path, class: 'btn btn-start' %><%= link_to 'Trainers', new_user_registration_path, class: 'btn btn-start' %>
         <a class="btn btn-start" href="#down">Learn more</a>
         <br /><br />
       </div>
@@ -83,8 +84,15 @@
       cillum dolore eu fugiat nulla pariatur.</p>
     </div>
   </div>
-
   
+<img class="img1" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+<div class="discription">
+<h3>Record Workouts</h3>
+<p>When your working out with a trainer, you will have the ability to record your reps and weights. You will be able to see the progress you are making</p>
+<img class="img2" src="https://images.unsplash.com/photo-1535743686920-55e4145369b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80">
+
+<img class="img3" src="https://images.unsplash.com/photo-1517963628607-235ccdd5476c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80">
+<br>
   <!-- This button is linked to learn more button at top of page via id -->
   <div id="down">
   <%= link_to "Get started today", new_user_registration_path, class: 'btn-lg btn btn-warning button btn-block' %>
