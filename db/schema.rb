@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_170606) do
+ActiveRecord::Schema.define(version: 2019_11_04_222456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_10_31_170606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "role_id"
+    t.integer "mood"
+    t.text "notes"
     t.index ["role_id"], name: "index_clients_on_role_id"
   end
 
@@ -38,9 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_170606) do
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "client_id"], name: "index_roles_on_name_and_client_id"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["name", "trainer_id"], name: "index_roles_on_name_and_trainer_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 

@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   resource :dashboard, only: [:show]
   root 'static_pages#index'
 
- 	resources :clients do
- 		resources :workouts
- 		resources :checkins
- 	end
-
- 	resources :trainers do
- 		resources :plans
- 		resources :schedules
- 	end
+		namespace :user do 
+ 			resources :clients 
+			resources :trainers 
+		end
 
   
-  
+	#  resources :workouts
+	#  resources :checkins
+	#  resources :plans
+	#  resources :schedules
   
 end

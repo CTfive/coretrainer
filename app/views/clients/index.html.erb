@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <div class="booyah-box col-10 offset-1 text-center">
-  <h1>Clients</h1>
-  <strong><h3> what do y'all think?</h3></strong>
-  <br>
-  <p>We can use this as the client dashboard! <br> Make a < div > below to show off your skills! - MD</p>
+  <h1>Client Dashboard</h1>
+  <h3> views/clients/index.html.erb </h3>
 </div>
 
 <table>
@@ -15,13 +13,11 @@
   </thead>
 
   <tbody>
-    <% @clients.each do |client| %>
       <tr>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', clients_path %></td>
+        <td><%= link_to 'Edit', edit_client_path(@client) %></td>
+        <%# <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td> %>
       </tr>
-    <% end %>
   </tbody>
 </table>
 
@@ -31,3 +27,47 @@
 
 
 <h3 style="text-align:center; color:purple;">Implement your client dashboard ideas below this line by working in the views/clients/index.html.erb file and found at http://localhost:3030/clients</h3>
+<br>
+
+<%# Client information form %>
+<div class="booyah-box text-center col-10 offset-1">
+  <%= simple_form_for clients_path(@client) do |f| %> 
+    <%= f.error_notification %>
+    <%= f.input :birthday %>
+    <%= f.input :injuries %>
+    <%= f.input :athletic_background %>
+    <%= f.input :goals %>
+    <%= f.input :workout_history %>
+    <%= f.button :submit, 'Submit your info', class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
+</div>
+<br><br>
+
+<%# Checkin form %>
+<div class="booyah-box text-center col-10 offset-1">
+  <%= simple_form_for '#' do |f| %> 
+    <%= f.input :weight %>
+    <%= f.input :mood %>
+    <%= f.input :notes %>
+    <%= f.button :submit, 'Add Checkin', class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i>
+  <% end %> 
+</div>
+<br><br>
+
+<%# Workout form %>
+<div class="booyah-box text-center col-10 offset-1">
+    <%= simple_form_for '#' do |f| %>
+    <%= f.input :exersize %>
+    <%= f.input :sets %>
+    <%= f.input :reps %>
+    <%= f.input :weight %>
+    <%= f.input :date_time %>
+    <%= f.input :notes %>
+    <%= f.input :workout_intensity, as: :range %>
+    <%= f.button :submit,'Add workout', class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i>
+  <% end %>  
+</div>
+<br>
