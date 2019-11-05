@@ -25,6 +25,7 @@ class User < ApplicationRecord
     end
   end
 
+
   # def input_roles
   #   self.input_roles.to_a["trainer", "client"]
   # end

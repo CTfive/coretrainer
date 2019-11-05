@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
   root 'static_pages#index'
 
-		namespace :user do 
- 			resources :clients 
-			resources :trainers 
+		namespace :users do 
+			 resources :clients, controller: 'clientuserscontroller'
+			 resources :trainers
 		end
 
   
