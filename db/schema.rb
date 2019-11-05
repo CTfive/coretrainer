@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_222456) do
+ActiveRecord::Schema.define(version: 2019_11_05_033820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "appointments", force: :cascade do |t|
+    t.string "client_id", null: false
+    t.string "trainer_id", null: false
+    t.datetime "start"
+    t.datetime "end"
+    t.index ["client_id"], name: "index_appointments_on_client_id"
+    t.index ["trainer_id"], name: "index_appointments_on_trainer_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.float "height"
-    t.float "weight"
     t.date "birthday"
     t.text "injuries"
     t.text "goals"
@@ -26,22 +34,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_222456) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "role_id"
-    t.integer "mood"
     t.text "notes"
-    t.index ["role_id"], name: "index_clients_on_role_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.integer "trainer_id"
-    t.integer "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -55,13 +48,12 @@ ActiveRecord::Schema.define(version: 2019_11_04_222456) do
     t.text "other_credentials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "role_id"
-    t.index ["role_id"], name: "index_trainers_on_role_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "username", null: false
+    t.string "role", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -74,18 +66,21 @@ ActiveRecord::Schema.define(version: 2019_11_04_222456) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  create_table "users_roles", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "role_id"
-    t.index ["role_id"], name: "index_users_roles_on_role_id"
-    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
-    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  create_table "workout_logs", force: :cascade do |t|
+    t.string "client_id", null: false
+    t.string "appointment_id"
+    t.datetime "date"
+    t.float "weight"
+    t.integer "mood"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_workout_logs_on_appointment_id"
+    t.index ["client_id"], name: "index_workout_logs_on_client_id"
   end
 
 end
