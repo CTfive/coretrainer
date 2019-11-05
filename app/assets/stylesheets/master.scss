@@ -61,6 +61,14 @@ h1, h2, h3, h4, h5, h6, .navbar {
   padding: 10px;
 }
 
+.float1 {
+  float: right;
+}
+
+.float2 {
+  float: left;
+}
+
 .card-img {
   max-width: 100%;
   max-height: 100%;
@@ -91,7 +99,7 @@ img {
 
 .feature {
   color: #317da3;
-  margin: 14px 5% 5% 5%;
+  margin: 5% 5% 5% 0%;
   padding: 5%;
   border: solid white 2px;
   text-align: bottom;
@@ -168,27 +176,32 @@ html {
  }
 
  .img1 { 
-  margin-left: -22% !important;
-  width: 82% !important;
+  width: 600px;
+  height: auto;
   float: left;
   margin: 1% 1% 3% 1%;
  }
 
  .img2 { 
-  margin-right: -64px !important;
-  width: 70% !important;
+  width: 600px;
+  height: auto;
   float: right;
-  margin: 1% 1% 3% 1%
+  margin: 1% 0% 3% 1%
  }
 
  .img3 { 
-  margin-left: -20% !important;
-  width: 82% !important;
+  width: 600px;
+  height: auto;
   float: left;
-  margin: 1% 1% 6% 1%;
+  margin: 1% 1% 3% 1%;
  }
 
- .description {
+ .text1 {
    color: #317da3;
-   text-align: center;
+   @include float-right;
  }
+
+ .text2 {
+  color: #317da3;
+  @include float-left;
+}
