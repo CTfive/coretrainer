@@ -9,6 +9,4 @@ class User < ApplicationRecord
   # has_many :trainers, through: :roles
   # has_many :clients, through: :roles
   # has_many :roles
-
-
 end
