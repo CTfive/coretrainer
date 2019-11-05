@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
 		namespace :user do 
- 			resources :clients 
+ 			resources :clients
 			resources :trainers 
 		end
 
