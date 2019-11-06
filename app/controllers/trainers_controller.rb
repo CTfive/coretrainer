@@ -11,6 +11,7 @@ class TrainersController < ApplicationController
   # GET /trainers/1
   # GET /trainers/1.json
   def show
+    @trainer = set_trainer
   end
 
   # GET /trainers/new
@@ -25,7 +26,7 @@ class TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create
-    @trainer = Trainer.new(trainer_params)
+    @trainer = current_user.trainers.create(trainer_params)
 
     respond_to do |format|
       if @trainer.save
