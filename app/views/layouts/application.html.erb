@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav text-right">
           
-          <% if current_user.role = "client" %>
+          <% if user_signed_in? && current_user.role = "client" %>
             <li class="nav-item">
               <%= link_to 'My Dashboard', clients_path, class: 'nav-link' %>
             </li>
