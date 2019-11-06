@@ -9,7 +9,7 @@ require 'rails_helper'
 # controller code, this generated spec may or may not pass.
 #
 # It only uses APIs available in rails and/or rspec-rails.  There are a number
-# of tools you can use to make thease specs even more expressive, but we're
+# of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 #
 # Compared to earlier versions of this generator, there is very limited use of
@@ -29,7 +29,7 @@ RSpec.describe TrainersController, type: :controller do
   # Trainer. As you add validations to Trainer, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip()
+    skip("Add a hash of attributes valid for your model")
   }
 
   let(:invalid_attributes) {
