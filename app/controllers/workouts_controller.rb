@@ -15,7 +15,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   def new
     @workout = Workout.new
-    @workout_log = Workout_Log.
+    @workout_log = Workout_Log.new
   end
 
   # GET /workouts/1/edit
@@ -34,6 +34,18 @@ class WorkoutsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
+      end
+    end
+
+    @workout_log = Workout_log.new(workout_log_params)
+    
+    respond_to do |format|
+      if @workout_log.save
+        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
+        format.json { render :show, status: :created, location: @workout_log }
+      else
+        format.html { render :new }
+        format.json { render json: @workout_log.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,8 +86,8 @@ class WorkoutsController < ApplicationController
         :lbs, :miles)
     end
 
-    def workout_logs_params
-      params.require(:workout_logs).permit(:date, :weight, :mood, :notes)
+    def workout_log_params
+      params.require(:workout_log).permit(:date, :weight, :mood, :notes)
     end
 end
 

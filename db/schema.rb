@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_011115) do
+ActiveRecord::Schema.define(version: 2019_11_06_032501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,12 @@ ActiveRecord::Schema.define(version: 2019_11_06_011115) do
     t.string "trainer_id", null: false
     t.datetime "start"
     t.datetime "end"
+    t.string "workout_id"
+    t.string "workoutlog_id"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["trainer_id"], name: "index_appointments_on_trainer_id"
+    t.index ["workout_id"], name: "index_appointments_on_workout_id"
+    t.index ["workoutlog_id"], name: "index_appointments_on_workoutlog_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -35,6 +39,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_011115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "notes"
+    t.string "workoutlog_id"
+    t.index ["workoutlog_id"], name: "index_clients_on_workoutlog_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -70,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_011115) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "workout_logs", force: :cascade do |t|
+  create_table "workoutlogs", force: :cascade do |t|
     t.string "client_id", null: false
     t.string "appointment_id"
     t.datetime "date"
@@ -79,8 +85,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_011115) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["appointment_id"], name: "index_workout_logs_on_appointment_id"
-    t.index ["client_id"], name: "index_workout_logs_on_client_id"
+    t.index ["appointment_id"], name: "index_workoutlogs_on_appointment_id"
+    t.index ["client_id"], name: "index_workoutlogs_on_client_id"
   end
 
   create_table "workouts", force: :cascade do |t|
@@ -93,6 +99,10 @@ ActiveRecord::Schema.define(version: 2019_11_06_011115) do
     t.float "miles"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "appointment_id"
+    t.string "trainer_id"
+    t.index ["appointment_id"], name: "index_workouts_on_appointment_id"
+    t.index ["trainer_id"], name: "index_workouts_on_trainer_id"
   end
 
 end
