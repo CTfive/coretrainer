@@ -4,4 +4,6 @@ class Trainer < ApplicationRecord
 	has_many :clients, through: :appointments
 	has_many :workouts
 	has_many :workoutlogs, through: :appointments
+
+	validates :role, presence: true
 end
