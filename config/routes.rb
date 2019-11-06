@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trainers
   devise_for :users 
   resource :dashboard, only: [:show]
   root 'static_pages#index'
