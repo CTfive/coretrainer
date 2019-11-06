@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
-  resources :trainers
+  resources :workouts
   devise_for :users 
   resource :dashboard, only: [:show]
-  root 'static_pages#index'
-
-		namespace :user do 
- 			resources :clients
-			resources :trainers 
-		end
-
-  
-	#  resources :workouts
-	#  resources :checkins
-	#  resources :plans
-	#  resources :schedules
-  
+ 	resources :clients
+	resources :trainers 
+	resources :appointments
+	resources :workouts
+	resources :workout_logs, controller: "workoutscontroller"
+	root 'static_pages#index'
 end
