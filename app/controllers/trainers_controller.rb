@@ -1,4 +1,5 @@
 class TrainersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
 
   # GET /trainers
