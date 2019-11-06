@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  attr_accessor :input_roles, :assign_trainer_role
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, and :omniauthable
