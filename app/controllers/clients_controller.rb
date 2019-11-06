@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new(user_id: :current_user.id)
+    @client = Client.new
   end
 
   # GET /clients/1/edit
