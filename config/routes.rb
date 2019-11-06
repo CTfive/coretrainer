@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :workouts
   devise_for :users, controllers: { registrations: "registrations" }
-	resource :dashboard, only: [:show]
  	resources :clients
 	resources :trainers 
 	resources :appointments
