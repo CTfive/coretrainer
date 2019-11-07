@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
-
 <div class="booyah-box col-10 offset-1 text-center">
-  <h1>Client Dashboard</h1>
-  <h3> views/clients/index.html.erb </h3>
+  <h4>Member Dashboard</h4>
 </div>
 
 <table>
@@ -14,51 +12,57 @@
 
   <tbody>
       <tr>
+      <div class ="text-right">
         <td><%= link_to 'Show', clients_path %></td>
         <td><%= link_to 'Edit', edit_client_path(@clients) %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
       </tr>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'New Member', new_client_path %>
 <br>
 
-
-<h3 style="text-align:center; color:purple;">Implement your client dashboard ideas below this line by working in the views/clients/index.html.erb file and found at http://localhost:3030/clients</h3>
-<br>
-
-<%# Client information form %>
-<div class="booyah-box text-center col-10 offset-1">
+<div style="display: inline-block; vertical-align: top; width: 12%" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a onclick="$(this).parent().find('a').removeClass('active')" class="nav-link active" id="info-tab" data-toggle="pill" href="#info" role="tab" aria-controls="info" aria-selected="true">Member Info</a>
+  <a onclick="$(this).parent().find('a').removeClass('active')" class="nav-link" id="check-tab" data-toggle="pill" href="#check" role="tab" aria-controls="check" aria-selected="false">Check-ins</a>
+  <a onclick="$(this).parent().find('a').removeClass('active')" class="nav-link" id="workout-tab" data-toggle="pill" href="#workout" role="tab" aria-controls="workout" aria-selected="false">Workouts</a> 
+</div>
+<div style="display: inline-block; vertical-align: top; width: 87%" class="tab-content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+  <%# Client information form %>
+<div class="booyah-box text-left col-10 offset-1">
   <%= simple_form_for clients_path(@client) do |f| %> 
     <%= f.error_notification %>
-    <%= f.input :birthday %>
-    <%= f.input :injuries %>
-    <%= f.input :athletic_background %>
-    <%= f.input :goals %>
-    <%= f.input :workout_history %>
+    <%= f.input :birthday, as: :date, html5: true %>
+    <%= f.input :injuries, :placeholder => "i.e. knee injury" %>
+    <%= f.input :athletic_background, :placeholder => "i.e. played basketball in high school" %>
+    <%= f.input :goals, :placeholder => "i.e. have more energy"%>
+    <%= f.input :workout_history, :placeholder => "i.e. never worked out"%>
     <%= f.button :submit, 'Submit your info', class: "btn-primary" %>
     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
 </div>
-<br><br>
-
-<%# Checkin form %>
-<div class="booyah-box text-center col-10 offset-1">
+  </div>
+  <div class="tab-pane fade" id="check" role="tabpanel" aria-labelledby="check-tab">
+  <%# Checkin form %>
+<div class="booyah-box text-left col-10 offset-1">
   <%= simple_form_for '#' do |f| %> 
-    <%= f.input :weight %>
-    <%= f.input :mood %>
+    <%= f.input :weight, :placeholder => "i.e. 175 lbs"%>
+    <%= f.input :mood, :placeholder =>"i.e. stressed"%>
     <%= f.input :notes %>
     <%= f.button :submit, 'Add Checkin', class: "btn-primary" %>
     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i>
   <% end %> 
 </div>
-<br><br>
-
-<%# Workout form %>
-<div class="booyah-box text-center col-10 offset-1">
+  </div>
+  <div class="tab-pane fade" id="workout" role="tabpanel" aria-labelledby="workout-tab">
+  <%# Workout form %>
+<div class="booyah-box text-left col-10 offset-1">
     <%= simple_form_for '#' do |f| %>
-    <%= f.input :exersize %>
+    <%= f.input :exercize %>
     <%= f.input :sets %>
     <%= f.input :reps %>
     <%= f.input :weight %>
@@ -69,4 +73,9 @@
     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i>
   <% end %>  
 </div>
+  </div>
+</div>
+
 <br>
+<br>
+
