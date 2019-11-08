@@ -10,38 +10,34 @@
 
   <!-- Body-->
   <body>
-    
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
-      <!-- Toggler Button -->
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Brand -->
-      <%= link_to 'Core Trainer', root_path, class: 'navbar-brand' %>
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav text-right">
-          
-          <% if user_signed_in? && current_user.role = "client" %>
-            <li class="nav-item">
-              <%= link_to 'My Dashboard', clients_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Sign up!', new_user_registration_path, class: 'nav-link' %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-    <br>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <!-- Brand -->
+    <%= link_to 'Core Trainer', root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? && current_user.role = "client" %>
+          <li class="nav-item">
+            <%= link_to 'My Dashboard', clients_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign up!', new_user_registration_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <br>
 
     <!-- Devise Alerts -->
     <% if notice.present? %>
