@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
+    @client = current_user.clients.new
   end
 
   # GET /clients/1/edit
@@ -27,7 +27,8 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.create(client_params)
+    byebug
+    @client = current_user.clients.create(client_params)
 
     respond_to do |format|
       if @client.save
@@ -71,7 +72,7 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_client
-      @client = Client.find(params[:id])
+      @client = current_user.clients.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
