@@ -1,5 +1,4 @@
 class Session < ApplicationRecord
-	belongs_to :trainer
-  has_many :sessions
-  has_many :clients, through: :sessions
+  belongs_to :trainer
+  belongs_to :client
 end

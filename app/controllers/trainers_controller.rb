@@ -26,7 +26,7 @@ class TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create
-    @trainer = current_user.trainers.create(trainer_params)
+    @trainer = Trainer.create(trainer_params)
 
     respond_to do |format|
       if @trainer.save
