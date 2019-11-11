@@ -3,24 +3,24 @@
 #
 # Examples:
 
+User.destroy_all
+Client.destroy_all
+Trainer.destroy_all
 
-
-i = 1
-
-i++
+client_users = User.
 
 25.times do 
-  User.create(name: 'Mick', username: 'Jeferson6060', email: "3242#{i}@gmail.com", password: "234234234#{i}", role: "client")
+  User.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, role: "client")
 end
 
 25.times do 
-  User.create(name: 'Micky', username: 'Jeferson6060', email: "3242#{i}@gmail.com", password: "234234234#{i}", role: "trainer")
+  User.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, role: "trainer")
 end
 
 25.times do
-  Client.create(height: 220.2, birthday: "10/02/98", injuries: "I've torn my ACL and MCL, possiblity of a heart condition",
+  User.all.clients.create(weight: 202.2,height: 220.2, birthday: "10/2/98", injuries: "I've torn my ACL and MCL, possiblity of a heart condition",
     goals: "Get my weight back down to below 200s and work on my knee", athletic_background: "I was a football player untill I had torn my acl and mcl.",
-    work_history: "After football I became a WebDev and I  do not get out that much anymore due to my job.", location: "Denver", user_id: "#{i}")
+    work_history: "After football I became a WebDev and I  do not get out that much anymore due to my job.", location: "Denver", notes: "blah blah blah")
 end
 
 25.times do 
@@ -39,7 +39,7 @@ end
 
 # Client.all.each do |client|
 #   25.times do 
-#     users.role << users.sample
+#     users. << users.sample
 #   end
 # end
 
