@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div class="booyah-box">
+  <p>
+    <strong>Title:</strong>
+    <%= @session.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @session.description %>
+  </p>
+
+  <p>
+    <strong>Exercises:</strong>
+    <%= @session.exercises %>
+  </p>
+
+  <p>
+    <strong>Sets:</strong>
+    <%= @session.sets %>
+  </p>
+
+  <p>
+    <strong>Reps:</strong>
+    <%= @session.reps %>
+  </p>
+
+  <p>
+    <strong>Notes:</strong>
+    <%= @session.notes %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_session_path(@session), class: 'btn btn-info button btn-md' %> |
+<%= link_to 'Back', sessions_path, class: 'btn btn-light button btn-md' %>
+<br>

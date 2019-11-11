@@ -1,6 +1,48 @@
 <p id="notice"><%= notice %></p>
 
+<!-- I dont think we need this anymore -->
 <%= link_to "Register as a Personal Trainer", "#", class: 'btn-lg btn btn-warning button btn-block' %>
 
-<%= link_to 'Edit', edit_client_path(@client) %>
-<%= link_to 'Back', clients_path %>
+<div class="booyah-box">
+  <p>
+    <strong>Height:</strong>
+    <%= @client.height %>
+  </p>
+
+  <p>
+    <strong>Birthday:</strong>
+    <%= @client.birthday %>
+  </p>
+
+  <p>
+    <strong>Injuries:</strong>
+    <%= @client.injuries %>
+  </p>
+
+  <p>
+    <strong>Goals:</strong>
+    <%= @client.goals %>
+  </p>
+
+  <p>
+    <strong>Athletic Background:</strong>
+    <%= @client.athletic_background %>
+  </p>
+
+  <p>
+    <strong>Work History:</strong>
+    <%= @client.work_history %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @client.location %>
+  </p>
+
+  <p>
+    <strong>Notes:</strong>
+    <%= @client.notes %>
+  </p>
+</div>
+<%= link_to 'Edit', edit_client_path(@client), class: 'btn btn-info button btn-md' %>
+<%= link_to 'Back', clients_path, class: 'btn btn-info button btn-md' %>
