@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :client, :trainer
+  # attr_accessor :client, :trainer
   has_many :trainers
   has_many :clients
   
