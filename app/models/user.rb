@@ -1,18 +1,18 @@
 class User < ApplicationRecord
-  # attr_accessor :client, :trainer
+  attr_accessor :client, :trainer
   has_many :trainers
   has_many :clients
-  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   validates :role, presence: true
 
+  enum status: %i[client trainer]
+
   def client
-    User.pluck(:role).uniq.last
+    self.where('role = ?', "client")
   end
 
   def trainer
-    User.pluck(:role).uniq.last
+    self.where('role = ?', "trainer")
   end
 end
