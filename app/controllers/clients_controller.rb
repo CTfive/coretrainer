@@ -27,15 +27,16 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = current_user.clients.create(client_params)
+    @client = current_user
+    @client.clients.create(client_params)
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        format.html { redirect_to clients_path, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
+        format.json { render json: Client.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +48,7 @@ class ClientsController < ApplicationController
   	@client.update(client_params)
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+        format.html { redirect_to clients_url, notice: 'Client was successfully updated.' }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit }
@@ -72,9 +73,6 @@ class ClientsController < ApplicationController
 
     def set_client
       @client = Client.find(params[:id])
-      puts @client.inspect
-      puts current_user.inspect
-      @client
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
