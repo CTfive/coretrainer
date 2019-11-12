@@ -7,8 +7,6 @@ User.destroy_all
 Client.destroy_all
 Trainer.destroy_all
 
-client_users = User.
-
 25.times do 
   User.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, role: "client")
 end
@@ -17,17 +15,23 @@ end
   User.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, role: "trainer")
 end
 
-25.times do
-  User.all.clients.create(weight: 202.2,height: 220.2, birthday: "10/2/98", injuries: "I've torn my ACL and MCL, possiblity of a heart condition",
-    goals: "Get my weight back down to below 200s and work on my knee", athletic_background: "I was a football player untill I had torn my acl and mcl.",
-    work_history: "After football I became a WebDev and I  do not get out that much anymore due to my job.", location: "Denver", notes: "blah blah blah")
-end
+user_role = User.pluck(:role).first
 
 25.times do 
-  Trainer.create(athletic_background: "D1 Basketball player for Duke, also I've been training since before pre-k", started_training: "I've been athletic my whole life",
-  specialties: "I specialize in weight loss and powerlifting", bio: "My name is Jack, I'm from Denver, Colorado. I'm a very postive and active guy!",
-  availability: "Mon - Fridays", location: "Denver", certificate_id: "1232384824-324")
+  User.client.clients.create()
 end
+
+# 25.times do
+#   User.find([:id]).clients.create(weight: 202.2,height: 220.2, birthday: "10/2/98", injuries: "I've torn my ACL and MCL, possiblity of a heart condition",
+#     goals: "Get my weight back down to below 200s and work on my knee", athletic_background: "I was a football player untill I had torn my acl and mcl.",
+#     work_history: "After football I became a WebDev and I  do not get out that much anymore due to my job.", location: "Denver")
+# end
+
+# 25.times do 
+#   Trainer.create(athletic_background: "D1 Basketball player for Duke, also I've been training since before pre-k", started_training: "I've been athletic my whole life",
+#   specialties: "I specialize in weight loss and powerlifting", bio: "My name is Jack, I'm from Denver, Colorado. I'm a very postive and active guy!",
+#   availability: "Mon - Fridays", location: "Denver", certificate_id: "1232384824-324")
+# end
 
 # height: 220.2, weight: 234.4, birthday: "10/02/98", injuries: "I've torn my ACL and MCL, possiblity of a heart condition",
 #               goals: "Get my weight back down to below 200s and work on my knee", athletic_background: "I was a football player untill I had torn my acl and mcl.",
