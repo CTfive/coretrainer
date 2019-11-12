@@ -10,7 +10,6 @@ class WorkoutlogsController < ApplicationController
   # GET /workoutlogs/1
   # GET /workoutlogs/1.json
   def show
-    @workoutlog = set_workoutlog
   end
 
   # GET /workoutlogs/new
@@ -25,7 +24,8 @@ class WorkoutlogsController < ApplicationController
   # POST /workoutlogs
   # POST /workoutlogs.json
   def create
-    @workoutlog = current_client.workoutlogs.create(workoutlog_params)
+    @workoutlog = Workoutlog.new(workoutlog_params)
+
     respond_to do |format|
       if @workoutlog.save
         format.html { redirect_to @workoutlog, notice: 'Workoutlog was successfully created.' }
@@ -63,17 +63,12 @@ class WorkoutlogsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
-    def current_client
-      @current_client||= Client.find(params[:client_id])
-    end
-
     def set_workoutlog
       @workoutlog = Workoutlog.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workoutlog_params
-      params.require(:workoutlog).permit(:date, :weight, :mood, :notes)
+      params.fetch(:workoutlog, {})
     end
 end
