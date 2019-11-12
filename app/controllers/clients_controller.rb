@@ -11,9 +11,9 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
-  	# @client = set_client
+  	 @client = set_client
   end
-
+ 
   # GET /clients/new
   def new
     @client = current_user.clients.new
@@ -27,7 +27,6 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    byebug
     @client = current_user.clients.create(client_params)
 
     respond_to do |format|
