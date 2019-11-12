@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_044611) do
+ActiveRecord::Schema.define(version: 2019_11_10_212427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,24 @@ ActiveRecord::Schema.define(version: 2019_11_06_044611) do
     t.text "notes"
     t.string "workoutlog_id"
     t.string "user_id"
+    t.float "weight"
     t.index ["user_id"], name: "index_clients_on_user_id"
     t.index ["workoutlog_id"], name: "index_clients_on_workoutlog_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "exercises"
+    t.text "sets"
+    t.text "reps"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "trainer_id"
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_sessions_on_client_id"
+    t.index ["trainer_id"], name: "index_sessions_on_trainer_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -105,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_044611) do
     t.datetime "updated_at", null: false
     t.string "appointment_id"
     t.string "trainer_id"
+    t.text "notes"
     t.index ["appointment_id"], name: "index_workouts_on_appointment_id"
     t.index ["trainer_id"], name: "index_workouts_on_trainer_id"
   end

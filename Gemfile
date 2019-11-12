@@ -48,6 +48,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -70,8 +71,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'jquery-rails'
-gem 'popper_js', '~> 1.11.1'
-gem 'bootstrap', '4.0.0.alpha6'
+gem 'popper_js', '1.14.3'
+gem 'bootstrap', '4.3.1'
 gem 'devise'
 
 source 'https://rails-assets.org' do

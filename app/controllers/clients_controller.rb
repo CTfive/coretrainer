@@ -11,12 +11,12 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
-  	@client = set_client
+  	# @client = set_client
   end
 
   # GET /clients/new
   def new
-    @client = Client.new
+    @client = current_user.clients.new
   end
 
   # GET /clients/1/edit
@@ -27,6 +27,7 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
+    byebug
     @client = current_user.clients.create(client_params)
 
     respond_to do |format|
@@ -71,11 +72,11 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_client
-      @client = Client.find(params[:id])
+      @client = current_user.clients.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:height, :birthday, :athletic_background, :bio, :location, :goals, :work_history, :notes)
+      params.require(:client).permit(:weight, :height, :athletic_background, :bio, :location, :goals, :work_history, :notes)
     end
 end
