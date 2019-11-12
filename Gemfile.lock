@@ -84,11 +84,8 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-<<<<<<< HEAD
-=======
     faker (2.7.0)
       i18n (>= 1.6, < 1.8)
->>>>>>> parent of 7454d19... Merge branch 'master' of github.com:CTfive/coretrainer into fixing-redirect-issue
     ffi (1.11.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
