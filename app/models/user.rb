@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # attr_accessor :client, :trainer
+  attr_accessor :client, :trainer
   has_many :trainers
   has_many :clients
   
@@ -9,10 +9,10 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   def client
-    User.pluck(:role).uniq.last
+    self.where('role = ?', "client")
   end
 
   def trainer
-    User.pluck(:role).uniq.last
+    self.where('role = ?', "trainer")
   end
 end
