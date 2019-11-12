@@ -13,10 +13,10 @@ class ClientsController < ApplicationController
   def show
   	 @client = set_client
   end
- 
+
   # GET /clients/new
   def new
-    @client = current_user.clients.new
+    @client = Client.new
   end
 
   # GET /clients/1/edit
@@ -71,7 +71,10 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_client
-      @client = current_user.clients.find(params[:id])
+      @client = Client.find(params[:id])
+      puts @client.inspect
+      puts current_user.inspect
+      @client
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
