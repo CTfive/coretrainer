@@ -25,7 +25,7 @@
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.label :role %>
-      <%= f.select :role, options_for_select([["Member", 0], ["Trainer", 1]]) %>
+      <%= f.select :role, options_for_select([["Member", "client"], ["Trainer", "trainer"]]) %>
      <br>
     </div>
     <div class="form-actions">
