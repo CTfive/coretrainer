@@ -87,11 +87,7 @@ GEM
       railties (>= 4.2.0)
     faker (2.7.0)
       i18n (>= 1.6, < 1.8)
-<<<<<<< HEAD
-    ffi (1.11.1)
-=======
     ffi (1.11.2)
->>>>>>> a126591e539ee11261ab13c8a4ff6c69112ce0b3
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     fullcalendar-rails (3.9.0.0)
