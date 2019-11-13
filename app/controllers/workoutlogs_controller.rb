@@ -20,6 +20,7 @@ class WorkoutlogsController < ApplicationController
 
   # GET /workoutlogs/1/edit
   def edit
+    @workoutlog = set_workoutlog
   end
 
   # POST /workoutlogs
@@ -28,7 +29,7 @@ class WorkoutlogsController < ApplicationController
     @workoutlog = current_client.workoutlogs.create(workoutlog_params)
     respond_to do |format|
       if @workoutlog.save
-        format.html { redirect_to @workoutlog, notice: 'Workoutlog was successfully created.' }
+        format.html { redirect_to clients_path, notice: 'Workoutlog was successfully created.' }
         format.json { render :show, status: :created, location: @workoutlog }
       else
         format.html { render :new }
@@ -41,8 +42,8 @@ class WorkoutlogsController < ApplicationController
   # PATCH/PUT /workoutlogs/1.json
   def update
     respond_to do |format|
-      if @workoutlog.update(workoutlog_params)
-        format.html { redirect_to @workoutlog, notice: 'Workoutlog was successfully updated.' }
+      if @current_client.workoutlogs.update(workoutlog_params)
+        format.html { redirect_to clients_path, notice: 'Workoutlog was successfully updated.' }
         format.json { render :show, status: :ok, location: @workoutlog }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class WorkoutlogsController < ApplicationController
   def destroy
     @workoutlog.destroy
     respond_to do |format|
-      format.html { redirect_to workoutlogs_url, notice: 'Workoutlog was successfully destroyed.' }
+      format.html { redirect_to clients_path, notice: 'Workoutlog was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
