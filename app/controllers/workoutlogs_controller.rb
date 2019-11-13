@@ -26,7 +26,7 @@ class WorkoutlogsController < ApplicationController
   # POST /workoutlogs
   # POST /workoutlogs.json
   def create
-    @workoutlog = current_client.workoutlogs.create(workoutlog_params)
+    @workoutlog = @current_client.workoutlogs.create(workoutlog_params)
     respond_to do |format|
       if @workoutlog.save
         format.html { redirect_to clients_path, notice: 'Workoutlog was successfully created.' }
