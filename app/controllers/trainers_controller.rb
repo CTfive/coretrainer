@@ -26,15 +26,16 @@ class TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create
-    @trainer = Trainer.create(trainer_params)
+    @trainer = current_user.trainers
+    @trainer.create(trainer_params)
 
     respond_to do |format|
       if @trainer.save
-        format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }
+        format.html { redirect_to trainer_path, notice: 'Trainer was successfully created.' }
         format.json { render :show, status: :created, location: @trainer }
       else
         format.html { render :new }
-        format.json { render json: @trainer.errors, status: :unprocessable_entity }
+        format.json { render json: Trainer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,13 +43,15 @@ class TrainersController < ApplicationController
   # PATCH/PUT /trainers/1
   # PATCH/PUT /trainers/1.json
   def update
+    @trainer = current_user
+
     respond_to do |format|
-      if @trainer.update(trainer_params)
-        format.html { redirect_to @trainer, notice: 'Trainer was successfully updated.' }
+      if @trainer.trainers.update(trainer_params)
+        format.html { redirect_to trainer_path, notice: 'Trainer was successfully updated.' }
         format.json { render :show, status: :ok, location: @trainer }
       else
         format.html { render :edit }
-        format.json { render json: @trainer.errors, status: :unprocessable_entity }
+        format.json { render json: Trainer.errors, status: :unprocessable_entity }
       end
     end
   end
