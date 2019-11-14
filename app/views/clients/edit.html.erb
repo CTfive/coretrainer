@@ -1,12 +1,1 @@
-<h4>Editing Member Dash</h4>
-
-<!-- According to the generated scaffolding in 'Sessions', 
-	this form should be rendered something like the line below -MD -->
-<%= render 'form', client: @client %> 
-
-<%= link_to 'Show', @client, class: 'btn btn-warning button btn-md' %> |
-<%= link_to 'Back', clients_path, class: 'btn btn-warning button btn-md' %>
-
-<br>
-<%= render :partial => 'form', client: @client %>
-<br>
+<%= render :partial => "client", :locals => {:client => @client} %>
