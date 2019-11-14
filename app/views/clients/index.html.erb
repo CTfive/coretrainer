@@ -1,37 +1,31 @@
+<% readonly = false if local_assigns[:readonly].nil?%>
 <p id="notice"><%= notice %></p>
 
 <h4>Member Dashboard</h4>
 <div class="booyah-box">
-  <table>
+  <table style="table-layout: fixed; width: 100%;"> 
     <thead>
       <tr>
-        <th>Height</th>
-        <th>Birthday</th>
-        <th>Injuries</th>
-        <th>Goals</th>
-        <th>Athletic Background</th>
-        <th>Work History</th>
+        <th>Name</th>
         <th>Location</th>
-        <th>Notes</th>
-        <th colspan="3"></th>
+        <th>Goals</th>
+        <th> &nbsp; </th>
+        <th> &nbsp; </th>
+        <th> &nbsp; </th>
       </tr>
     </thead>
 
     <tbody>
       <% @clients.each do |client| %>
         <tr>
-          <td><%= client.height %></td>
-          <td><%= client.birthday %></td>
-          <td><%= client.injuries %></td>
-          <td><%= client.goals %></td>
-          <td><%= client.athletic_background %></td>
-          <td><%= client.work_history %></td>
-          <td><%= client.location %></td>
-          <td><%= client.notes %></td>
-          <td><%= link_to 'Show', clients_path %></td>
-          <td><%= link_to 'Edit', edit_client_path(@clients) %></td>
+          <td><%= client.user.name %></td>
+          <td><%=raw client.location || "&nbsp;" %></td>
+          <td><%=raw client.goals || "&nbsp;" %></td>
+          <td><%= link_to 'Show', client_path(client) %></td>
+          <% if @readonly%>
+          <td><%= link_to 'Edit', edit_client_path(client) %></td>
           <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+          <% end %>
       <% end %>
     </tbody>
   </table>
@@ -43,59 +37,5 @@
 <hr>
 <br>
 
-<!-- I think we'll need to move these forms to another file - MD -->
-<div style="display: inline-block; vertical-align: top; width: 12%" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a onclick="$(this).parent().find('a').removeClass('active')" class="nav-link active" id="info-tab" data-toggle="pill" href="#info" role="tab" aria-controls="info" aria-selected="true">Member Info</a>
-  <a onclick="$(this).parent().find('a').removeClass('active')" class="nav-link" id="check-tab" data-toggle="pill" href="#check" role="tab" aria-controls="check" aria-selected="false">Check-ins</a>
-  <a onclick="$(this).parent().find('a').removeClass('active')" class="nav-link" id="workout-tab" data-toggle="pill" href="#workout" role="tab" aria-controls="workout" aria-selected="false">Workouts</a> 
-</div>
-<div style="display: inline-block; vertical-align: top; width: 87%" class="tab-content" id="v-pills-tabContent">
-  <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-  <%# Client information form %>
-<div class="booyah-box text-left col-10 offset-1">
-  <%= simple_form_for clients_path(@client) do |f| %> 
-    <%= f.error_notification %>
-    <%= f.input :birthday, as: :date, html5: true %>
-    <%= f.input :injuries, :placeholder => "i.e. knee injury" %>
-    <%= f.input :athletic_background, :placeholder => "i.e. played basketball in high school" %>
-    <%= f.input :goals, :placeholder => "i.e. have more energy"%>
-    <%= f.input :workout_history, :placeholder => "i.e. never worked out"%>
-    <%= f.button :submit, 'Submit your info', class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-  <% end %>
-</div>
-  </div>
-  <div class="tab-pane fade" id="check" role="tabpanel" aria-labelledby="check-tab">
-  <%# Checkin form %>
-<div class="booyah-box text-left col-10 offset-1">
-  <%= simple_form_for workoutlogs_path(@workoutlog) do |f| %> 
-    <%= f.input :weight, :placeholder => "i.e. 175 lbs"%>
-    <%= f.input :mood, :placeholder =>"i.e. stressed"%>
-    <%= f.input :notes %>
-    <%= f.input :text %>
-    <%= f.button :submit, 'Add Checkin', class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i>
-  <% end %> 
-</div>
-  </div>
-  <div class="tab-pane fade" id="workout" role="tabpanel" aria-labelledby="workout-tab">
-  <%# Workout form %>
-<div class="booyah-box text-left col-10 offset-1">
-    <%= simple_form_for '#' do |f| %>
-    <%= f.input :exercize %>
-    <%= f.input :sets %>
-    <%= f.input :reps %>
-    <%= f.input :weight %>
-    <%= f.input :date_time %>
-    <%= f.input :notes %>
-    <%= f.input :workout_intensity, as: :range %>
-    <%= f.button :submit,'Add workout', class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %></i>
-  <% end %>  
-</div>
-  </div>
-</div>
 
-<br>
-<br>
 

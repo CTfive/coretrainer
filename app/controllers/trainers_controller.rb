@@ -23,6 +23,13 @@ class TrainersController < ApplicationController
   def edit
   end
 
+  def clients
+    @trainer = set_trainer
+    @clients = trainer_clients
+    @readonly = true
+    render "client/index"
+  end
+
   # POST /trainers
   # POST /trainers.json
   def create
