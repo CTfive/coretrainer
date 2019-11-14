@@ -3,16 +3,9 @@ class User < ApplicationRecord
   has_many :trainers
   has_many :clients
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, 
+         :confirmable
   validates :role, presence: true
 
-  enum status: %i[client trainer]
-
-  def client
-    self.where('role = ?', "client")
-  end
-
-  def trainer
-    self.where('role = ?', "trainer")
-  end
+  enum role: %i[client trainer]
 end
