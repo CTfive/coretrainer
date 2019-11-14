@@ -8,18 +8,24 @@ Client.destroy_all
 Trainer.destroy_all
 
 25.times do 
-  User.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, role: "client")
+  User.create(name: Faker::Name.name, 
+              username: Faker::Internet.username, 
+              email: Faker::Internet.email, 
+              password: Faker::Internet.password)
 end
 
 25.times do 
-  User.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, role: "trainer")
+  User.create(name: Faker::Name.name, 
+              username: Faker::Internet.username, 
+              email: Faker::Internet.email, 
+              password: Faker::Internet.password, 
+              role: "trainer")
 end
 
-user_role = User.pluck(:role).first
 
-25.times do 
-  User.client.clients.create()
-end
+# 25.times do 
+#   User.client.clients.create()
+# end
 
 # 25.times do
 #   User.find([:id]).clients.create(weight: 202.2,height: 220.2, birthday: "10/2/98", injuries: "I've torn my ACL and MCL, possiblity of a heart condition",
