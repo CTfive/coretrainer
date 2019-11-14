@@ -10,6 +10,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    @workout = set_workout
   end
 
   # GET /workouts/new
@@ -19,12 +20,14 @@ class WorkoutsController < ApplicationController
 
   # GET /workouts/1/edit
   def edit
+    @workout = set_workout
   end
 
   # POST /workouts
   # POST /workouts.json
   def create
-    @workout = Workout.new(workout_params)
+    @workout = current_trainer.workouts
+    @workout.create(workout_params)
 
     respond_to do |format|
       if @workout.save
@@ -67,20 +70,13 @@ class WorkoutsController < ApplicationController
       @workout = Workout.find(params[:id])
     end
 
+    def current_trainer
+      @current_trainer =|| Trainer.find(params[:trainer_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
       params.require(:workout).permit(:title, :description, :exercise, :sets, :reps,
-        :lbs, :miles)
-    end
-
-    def workout_log_params
-      params.require(:workout_log).permit(:date, :weight, :mood, :notes)
+                                      :lbs, :miles, :user_id)
     end
 end
-
-t.string "client_id", null: false
-t.string "appointment_id"
-t.datetime "date"
-t.float "weight"
-t.integer "mood"
-t.text "notes"
