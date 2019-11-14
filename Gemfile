@@ -84,3 +84,7 @@ gem 'simple_form'
 # Fontawesome Icon support
 gem "font-awesome-rails"
 
+# Timezone support
+gem 'timezone', '~> 1.0'
+gem 'local_time'
+
