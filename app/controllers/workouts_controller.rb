@@ -71,7 +71,7 @@ class WorkoutsController < ApplicationController
     end
 
     def current_trainer
-      @current_trainer =|| Trainer.find(params[:trainer_id])
+      @current_trainer ||= Trainer.find(params[:trainer_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
