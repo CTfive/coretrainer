@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @trainer.bio %>
+        <td><%= link_to 'View workouts', workout_path %></td>
+      </tr>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
 <%= link_to 'Back', trainers_path %>

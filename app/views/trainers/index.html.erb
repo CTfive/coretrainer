@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h5>Trainer</h5>
+<h5>Pick your trainer</h5>
+<br>
+<h4>Find a Workout to suit your needs</h4>
 
 <table>
   <thead>
@@ -12,14 +14,11 @@
   <tbody>
     <% @trainers.each do |trainer| %>
       <tr>
+        <td>
         <td><%= link_to 'Show', trainer %></td>
-        <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
-        <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Trainer', new_trainer_path %>

@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   resources :workouts
   devise_for :users, controllers: { registrations: "registrations" }
  	resources :clients
-  resources :trainers do
-    resources :clients
-  end
+  resources :trainers 
 
 	root 'static_pages#index'
 end

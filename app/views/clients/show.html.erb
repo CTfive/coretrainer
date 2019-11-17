@@ -1,1 +1,39 @@
-<%= render :partial => "client", :locals => {:client => @client, :readonly => true}%>
+<p id="notice"><%= notice %></p>
+
+<%# this is the indiviual clients profile page 
+    we need a profile pic, we need a list of all the clients trainers. 
+    add things that you would like to be in your profile and add some SICK syling :)%>
+
+<h4>Your Profile</h4>
+<div class="booyah-box">
+  <table style="table-layout: fixed; width: 100%;"> 
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Goals</th>
+        <th> &nbsp; </th>
+        <th> &nbsp; </th>
+        <th> &nbsp; </th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td><%= @client.user.name %></td>
+          <td><%=raw @client.location || "&nbsp;" %></td>
+          <td><%=raw @client.goals || "&nbsp;" %></td>
+          <td><%= link_to 'Edit', edit_client_path(@client) %></td>
+          <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tbody>
+  </table>
+</div>
+<br>
+<%= link_to 'View Trainers', trainers_path , class: 'btn btn-success button btn-md' %>
+<br>
+<hr>
+<hr>
+<br>
+
+
+
