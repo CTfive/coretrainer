@@ -1,1 +1,30 @@
-<%= render :partial => "client", :locals => {:client => @client} %>
+<p id="notice"><%= notice %></p>
+
+<h4>Member Dashboard</h4>
+<div class="booyah-box">
+  <table style="table-layout: fixed; width: 100%;"> 
+    <tbody>
+        <tr>
+        <div class="booyah-box text-left col-10 offset-1">
+          <%= simple_form_for edit_client_path(@client) do |f| %> 
+            <%= f.error_notification %>
+            <%= f.input :birthday, as: :date, html5: true, input_html: {value: @client.birthday} %>
+            <%= f.input :injuries, :placeholder => "i.e. knee injury", input_html: {value: @client.injuries} %>
+            <%= f.input :athletic_background, :placeholder => "i.e. played basketball in high school",  input_html: {value: @client.athletic_background} %>
+            <%= f.input :goals, :placeholder => "i.e. have more energy", input_html: {value: @client.goals} %>
+            <%= f.input :work_history, :placeholder => "i.e. never worked out", input_html: {value: @client.work_history} %>
+            <%= f.button :submit, 'Submit your info', class: "btn-primary" %>
+            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+          <% end %>
+        </div>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<hr>
+<hr>
+<br>
+
+
+
