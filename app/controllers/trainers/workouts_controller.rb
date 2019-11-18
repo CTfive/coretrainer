@@ -1,4 +1,5 @@
-class WorkoutsController < ApplicationController
+class Trainers::WorkoutsController < ApplicationController
+  before_action :athenticate_user!
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
   # GET /workouts
