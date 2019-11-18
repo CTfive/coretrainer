@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  # resources :sessions
-  resources :appointments
   resources :workoutlogs
   resources :workouts
   devise_for :users, controllers: { registrations: "registrations" }
- 	resources :clients
+  resources :clients do 
+    resources :workoutlogs, module: :clients, except: [:destroy, :index]
+  end
   resources :trainers 
-
-	root 'static_pages#index'
+  resources :relations
+  namespace :meeting do 
+    resources :relations do 
+      resources :appointments
+    end
+  end
+  root 'static_pages#index'
 end
