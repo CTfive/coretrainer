@@ -1,4 +1,5 @@
-class WorkoutlogsController < ApplicationController
+class Clients::WorkoutlogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_workoutlog, only: [:show, :edit, :update, :destroy]
 
   # GET /workoutlogs
@@ -26,7 +27,7 @@ class WorkoutlogsController < ApplicationController
   # POST /workoutlogs
   # POST /workoutlogs.json
   def create
-    @workoutlog = @current_client.workoutlogs.create(workoutlog_params)
+    @workoutlog = current_client.workoutlogs.create(workoutlog_params)
     respond_to do |format|
       if @workoutlog.save
         format.html { redirect_to clients_path, notice: 'Workoutlog was successfully created.' }
@@ -55,7 +56,7 @@ class WorkoutlogsController < ApplicationController
   # DELETE /workoutlogs/1
   # DELETE /workoutlogs/1.json
   def destroy
-    @workoutlog.destroy
+    @current_client.workoutlogs.destroy
     respond_to do |format|
       format.html { redirect_to clients_path, notice: 'Workoutlog was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,7 +71,7 @@ class WorkoutlogsController < ApplicationController
     end
 
     def set_workoutlog
-      @workoutlog = Workoutlog.find(params[:id])
+      @workoutlog = Wworkoutlogs.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -78,3 +79,4 @@ class WorkoutlogsController < ApplicationController
       params.require(:workoutlog).permit(:date, :weight, :mood, :notes)
     end
 end
+

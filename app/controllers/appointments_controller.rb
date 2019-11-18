@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = 
 
     respond_to do |format|
       if @appointment.save
@@ -67,8 +67,16 @@ class AppointmentsController < ApplicationController
       @appointment = Appointment.find(params[:id])
     end
 
+    def current_trainer
+      @current_trainer ||= Trainer.find(params[:trainer_id])
+    end
+
+    def current_client
+      @current_client ||= Client.find(params[:client_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:client_id, :trainer_id, :start, :end)
+      params.require(:appointment).permit(:start, :end, :client_id, :trainer_id)
     end
 end

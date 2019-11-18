@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_182745) do
+ActiveRecord::Schema.define(version: 2019_11_17_034906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2019_11_12_182745) do
     t.float "weight"
     t.index ["user_id"], name: "index_clients_on_user_id"
     t.index ["workoutlog_id"], name: "index_clients_on_workoutlog_id"
+  end
+
+  create_table "relations", force: :cascade do |t|
+    t.string "client_id"
+    t.string "trainer_id"
+    t.string "appointment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_relations_on_appointment_id"
+    t.index ["client_id"], name: "index_relations_on_client_id"
+    t.index ["trainer_id"], name: "index_relations_on_trainer_id"
   end
 
   create_table "sessions", force: :cascade do |t|

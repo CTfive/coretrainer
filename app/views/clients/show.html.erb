@@ -25,6 +25,7 @@
           <td><%=raw @client.goals || "&nbsp;" %></td>
           <td><%= link_to 'Edit', edit_client_path(@client) %></td>
           <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Create Workout Log', new_client_workoutlog_path(@client) %></td>
     </tbody>
   </table>
 </div>
