@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_034906) do
+ActiveRecord::Schema.define(version: 2019_11_19_223556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,29 +47,12 @@ ActiveRecord::Schema.define(version: 2019_11_17_034906) do
   end
 
   create_table "relations", force: :cascade do |t|
-    t.string "client_id"
-    t.string "trainer_id"
-    t.string "appointment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["appointment_id"], name: "index_relations_on_appointment_id"
-    t.index ["client_id"], name: "index_relations_on_client_id"
-    t.index ["trainer_id"], name: "index_relations_on_trainer_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.text "exercises"
-    t.text "sets"
-    t.text "reps"
-    t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "trainer_id"
     t.integer "client_id"
-    t.index ["client_id"], name: "index_sessions_on_client_id"
-    t.index ["trainer_id"], name: "index_sessions_on_trainer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_relations_on_client_id"
+    t.index ["trainer_id"], name: "index_relations_on_trainer_id"
   end
 
   create_table "trainers", force: :cascade do |t|

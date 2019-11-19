@@ -1,5 +1,4 @@
-module Relation
-  def self.table_name_prefix
-    'relation_'
-  end
+class Relation < ApplicationRecord
+  belongs_to :client
+  belongs_to :trainer
 end
