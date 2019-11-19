@@ -23,18 +23,18 @@ class TrainersController < ApplicationController
     def edit
     end
   
-    def clients
-      @trainer = set_trainer
-      @clients = trainer_clients
-      @readonly = true
-      render "client/index"
-    end
+    # def clients
+    #   @trainer = set_trainer
+    #   @clients = trainer_clients
+    #   @readonly = true
+    #   render "client/index"
+    # end
   
     # POST /trainers
     # POST /trainers.json
     def create
-      @trainer = current_user.trainers
-      @trainer.create(trainer_params)
+      @trainer = current_user
+      @trainer.trainers.create(trainer_params)
   
       respond_to do |format|
         if @trainer.save
@@ -50,6 +50,7 @@ class TrainersController < ApplicationController
     # PATCH/PUT /trainers/1
     # PATCH/PUT /trainers/1.json
     def update
+      @trainer = set_trainer
       @trainer = current_user
   
       respond_to do |format|
@@ -81,6 +82,6 @@ class TrainersController < ApplicationController
   
       # Never trust parameters from the scary internet, only allow the white list through.
       def trainer_params
-        params.require(:trainer).permit(:athletic_background, :started_training, :specialties, :bio, :availability, :location, :certificate_id, :other_credentials)
+        params.permit(:trainer).permit(:athletic_background, :started_training, :specialties, :bio, :availability, :location, :certificate_id, :other_credentials)
       end
   end

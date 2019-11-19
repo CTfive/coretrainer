@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h5>Pick your trainer</h5>
-<br>
-<h4>Find a Workout to suit your needs</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trainers.each do |trainer| %>
+<div class="booyah-box">
+  <table style="table-layout: fixed; width: 100%;"> 
+    <thead>
       <tr>
-        <td>
-        <td><%= link_to 'Show', trainer %></td>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Goals</th>
+        <th> &nbsp; </th>
+        <th> &nbsp; </th>
+        <th> &nbsp; </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @trainers.each do |trainer| %>
+        <tr>
+          <td><%= trainer.user.name %></td>
+          <td><%=raw trainer.location || "&nbsp;" %></td>
+          <td><%=raw trainer.bio || "&nbsp;" %></td>
+          <td><%= link_to 'Show', trainer_path(trainer) %></td>
+          <% if @readonly%>
+          <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
+          <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
+<br>
+<hr>
+<hr>
+<br>
+
+<%= link_to 'Back', trainers_path %>
