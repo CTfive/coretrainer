@@ -1,4 +1,5 @@
-class WorkoutsController < ApplicationController
+class Trainers::WorkoutsController < ApplicationController
+  before_action :athenticate_user!
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
   # GET /workouts
@@ -65,18 +66,19 @@ class WorkoutsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_workout
-      @workout = Workout.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_workout
+    @workout = Workout.find(params[:id])
+  end
 
-    def current_trainer
-      @current_trainer ||= Trainer.find(params[:trainer_id])
-    end
+  def current_trainer
+    @current_trainer ||= Trainer.find(params[:trainer_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def workout_params
-      params.require(:workout).permit(:title, :description, :exercise, :sets, :reps,
-                                      :lbs, :miles, :user_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def workout_params
+    params.require(:workout).permit(:title, :description, :exercise, :sets, :reps,
+                                    :lbs, :miles, :user_id)
+  end
 end
+

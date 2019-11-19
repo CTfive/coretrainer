@@ -1,0 +1,2 @@
+module Trainers::WorkoutsHelper
+end
