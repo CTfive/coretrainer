@@ -17,9 +17,8 @@
         <tr>
           <td><%= trainer.user.name %></td>
           <td><%=raw trainer.location || "&nbsp;" %></td>
-          <td><%=raw trainer.bio || "&nbsp;" %></td>
-          <td><%= link_to 'Show', trainer_path(trainer) %></td>
-          <% if @readonly%>
+          <td><%= link_to 'View Workouts', trainer_path(trainer) %></td>
+          <% if @readonly %>
           <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
           <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
