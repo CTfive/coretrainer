@@ -1,28 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<div class="booyah-box">
-  <table style="table-layout: fixed; width: 100%;"> 
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Goals</th>
-        <th> &nbsp; </th>
-        <th> &nbsp; </th>
-        <th> &nbsp; </th>
-      </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-          <td><%= @trainer.user.name %></td>
-          <td><%=raw @trainer.bio || "&nbsp;" %></td>
-          <td><%=raw @trainer.title || "&nbsp;" %></td>
-          <td><%= link_to 'Edit', edit_trainer_path(@trainer) %></td>
-          <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'Create Workout Log', new_trainer_workout_path(@trainer) %></td>
-    </tbody>
-  </table>
+<div class="booyah-box">  
+  <strong>Name</strong> <br>
+  <%= @trainer.user.name %> <br>
+  <strong>Location</strong> <br>
+  <%= @trainer.location %> <br>
+  <strong>Bio</strong> <br>
+  <%=raw @trainer.bio || "&nbsp;" %>
+  <br>
+  <%= link_to 'Edit', edit_trainer_path(@trainer) %>
+  <%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Create Workout', new_trainer_workout_path(@trainer) %>
 </div>
 <br>
 <br>
