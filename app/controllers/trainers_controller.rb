@@ -11,7 +11,7 @@ class TrainersController < ApplicationController
     # GET /trainers/1
     # GET /trainers/1.json
     def show
-      @trainer = set_trainer
+      # @trainer = set_trainer
     end
   
     # GET /trainers/new
