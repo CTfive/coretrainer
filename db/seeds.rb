@@ -27,6 +27,6 @@ User.trainer.each do |user|
 end
 
 User.client.each do |user|
-  user.clients.create(height: 5.2, birthday: "10/12/09", injuries: "Broken ankle", goals: "Loose weight", athletic_background: "High school football", 
-    work_history: "worked at 3 places", location: "Denver", notes: "Long list of notes", weight: 170)
+  user.clients.create(height: 5.2, birthday: "10/12/09", injuries: "Broken ankle", goals: "Loose weight", athletic_history: "High school football", 
+    current_work: "worked at 3 places", location: "Denver", notes: "Long list of notes", weight: 170)
 end

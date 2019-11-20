@@ -10,22 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_223556) do
+ActiveRecord::Schema.define(version: 2019_11_12_182745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.string "client_id", null: false
-    t.string "trainer_id", null: false
-    t.datetime "start"
-    t.datetime "end"
-    t.string "workout_id"
-    t.string "workoutlog_id"
+    t.integer "client_id"
+    t.integer "trainer_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["trainer_id"], name: "index_appointments_on_trainer_id"
-    t.index ["workout_id"], name: "index_appointments_on_workout_id"
-    t.index ["workoutlog_id"], name: "index_appointments_on_workoutlog_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -33,26 +29,17 @@ ActiveRecord::Schema.define(version: 2019_11_19_223556) do
     t.date "birthday"
     t.text "injuries"
     t.text "goals"
-    t.text "athletic_background"
-    t.text "work_history"
+    t.text "athletic_history"
+    t.text "current_work"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "notes"
-    t.string "workoutlog_id"
-    t.string "user_id"
+    t.integer "workoutlog_id"
+    t.integer "user_id"
     t.float "weight"
     t.index ["user_id"], name: "index_clients_on_user_id"
     t.index ["workoutlog_id"], name: "index_clients_on_workoutlog_id"
-  end
-
-  create_table "relations", force: :cascade do |t|
-    t.integer "trainer_id"
-    t.integer "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_relations_on_client_id"
-    t.index ["trainer_id"], name: "index_relations_on_trainer_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -66,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_223556) do
     t.text "other_credentials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_trainers_on_user_id"
   end
 
@@ -91,11 +78,11 @@ ActiveRecord::Schema.define(version: 2019_11_19_223556) do
   end
 
   create_table "workoutlogs", force: :cascade do |t|
-    t.string "client_id", null: false
-    t.string "appointment_id"
+    t.integer "client_id", null: false
+    t.integer "appointment_id"
     t.datetime "date"
     t.float "weight"
-    t.integer "mood"
+    t.integer "moode"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -113,8 +100,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_223556) do
     t.float "miles"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "appointment_id"
-    t.string "trainer_id"
+    t.integer "appointment_id"
+    t.integer "trainer_id"
     t.text "notes"
     t.index ["appointment_id"], name: "index_workouts_on_appointment_id"
     t.index ["trainer_id"], name: "index_workouts_on_trainer_id"

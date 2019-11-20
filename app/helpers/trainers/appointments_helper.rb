@@ -1,0 +1,2 @@
+module Trainers::AppointmentsHelper
+end
