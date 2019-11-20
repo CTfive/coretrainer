@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :trainers do
     resources :workouts, module: :trainers
-    resources :relations
+    resources :appointments, module: :trainers
   end
   root 'static_pages#index'
 end
