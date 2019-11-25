@@ -4,6 +4,8 @@
 User.destroy_all
 Client.destroy_all
 Trainer.destroy_all
+Appointment.destroy_all
+Workout.destroy_all
 
 25.times do 
   User.create(name: Faker::Name.name, 
@@ -38,6 +40,6 @@ end
 
 Client.ids.each do |client|
   Trainer.ids.each do |trainer|
-    Appointment.create(client_id: client, trainer_id: trainer )
+    Appointment.create(client_id: client, trainer_id: trainer, start_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short), end_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short) )
   end
 end
