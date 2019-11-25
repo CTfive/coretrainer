@@ -8,8 +8,9 @@ class CreateWorkouts < ActiveRecord::Migration[5.2]
       t.float :reps 
       t.float :lbs
       t.float :miles
-      
+      t.integer :trainer_id, null: false
       t.timestamps
     end
+    add_index :workouts, :trainer_id
   end
 end
