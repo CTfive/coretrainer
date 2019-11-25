@@ -16,7 +16,7 @@
     <%= f.error_notification %>
     <%= f.input :birthday, as: :date, html5: true, readonly: readonly, input_html: {value: client.birthday} %>
     <%= f.input :injuries, :placeholder => "i.e. knee injury", readonly: readonly, input_html: {value: client.injuries} %>
-    <%= f.input :athletic_background, :placeholder => "i.e. played basketball in high school", readonly: readonly, input_html: {value: client.athletic_background} %>
+    <%= f.input :athletic_history, :placeholder => "i.e. played basketball in high school", readonly: readonly, input_html: {value: client.athletic_background} %>
     <%= f.input :goals, :placeholder => "i.e. have more energy", readonly: readonly, input_html: {value: client.goals} %>
     <%= f.input :work_history, :placeholder => "i.e. never worked out", readonly: readonly, input_html: {value: client.work_history} %>
     <% if !readonly%>

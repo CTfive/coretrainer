@@ -1,0 +1,2 @@
+module Trainers::ClientsHelper
+end
