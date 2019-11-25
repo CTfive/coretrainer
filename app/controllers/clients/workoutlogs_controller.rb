@@ -71,7 +71,7 @@ class Clients::WorkoutlogsController < ApplicationController
     end
 
     def set_workoutlog
-      @workoutlog = Wworkoutlogs.find(params[:id])
+      @workoutlog = Workoutlogs.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
