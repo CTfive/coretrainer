@@ -30,3 +30,14 @@ User.client.each do |user|
   user.clients.create(height: 5.2, birthday: "10/12/09", injuries: "Broken ankle", goals: "Loose weight", athletic_history: "High school football", 
     current_work: "worked at 3 places", location: "Denver", notes: "Long list of notes", weight: 170)
 end
+
+Trainer.all.each do |trainer|
+  Workout.create(title: "Bewest workout ever", description: "Come and get YOKED", exercise: "lots of them", sets: 1, reps: 2.2, miles: 2.2,
+                lbs: 123.2, notes: "great work!")
+end
+
+Client.ids.each do |client|
+  Trainer.ids.each do |trainer|
+    Appointment.create(client_id: client, trainer_id: trainer )
+  end
+end

@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2019_11_12_182745) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "client_id"
-    t.integer "trainer_id"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.bigint "client_id"
+    t.bigint "trainer_id"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["trainer_id"], name: "index_appointments_on_trainer_id"
   end
@@ -98,12 +98,10 @@ ActiveRecord::Schema.define(version: 2019_11_12_182745) do
     t.float "reps"
     t.float "lbs"
     t.float "miles"
+    t.integer "trainer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "appointment_id"
-    t.integer "trainer_id"
     t.text "notes"
-    t.index ["appointment_id"], name: "index_workouts_on_appointment_id"
     t.index ["trainer_id"], name: "index_workouts_on_trainer_id"
   end
 
