@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h4>Trainers</h4>
+<h4>Core Trainers</h4>
 
 <div class="booyah-box">
   <table style="table-layout: fixed; width: 100%;"> 
@@ -8,7 +8,8 @@
       <tr>
         <th>Name</th>
         <th>Location</th>
-        <th>Goals</th>
+        <th>Bio</th>
+        <th>Trainer Workouts<th>
         <th> &nbsp; </th>
         <th> &nbsp; </th>
         <th> &nbsp; </th>
@@ -19,7 +20,7 @@
         <tr>
           <td><%= trainer.user.name %></td>
           <td><%=raw trainer.location || "&nbsp;" %></td>
-          <td><%= link_to 'View Workouts', trainer_path(trainer) %></td>
+          <td><%= link_to 'View Trainer', trainer_path(trainer) %></td>
           <% if @readonly %>
           <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
           <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>

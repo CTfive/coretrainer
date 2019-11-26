@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index, :show, :new]
   end
 
-  namespace :user do
-    root 'static_pages#index'
-  end
+
+  root 'static_pages#index'
 end
