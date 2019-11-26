@@ -18,8 +18,17 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
 
+  def after_sign_in_path_for(resource)
+    if resource.client?
+      redirect_to client_path(current_user)
+    elsif resource.trainer?
+      redirect_to trainer_path(current_user)
+    else
+      render "hey buddy, what are you tryin' ta do here, eh?"
+    end
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
