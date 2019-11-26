@@ -8,9 +8,13 @@
   <strong>Bio</strong> <br>
   <%=raw @trainer.bio || "&nbsp;" %>
   <br>
-  <%= link_to 'Edit', edit_trainer_path(@trainer) %>
-  <%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%= link_to 'Create Workout', new_trainer_workout_path(@trainer) %>
+  <% if current_user.trainer?%>
+    <%= link_to 'Edit', edit_trainer_path(@trainer) %>
+    <%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Create Workout', new_trainer_workout_path(@trainer) %>
+  <% elsif current_user.client? %>
+    <%= link_to 'Trainer Workouts', trainer_workout_path(@trainer) %>
+  <% end %>
 </div>
 <br>
 <br>
@@ -19,4 +23,3 @@
 <br>
 
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
-<%= link_to 'Back', trainers_path %>

@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index, :show, :new]
   end
 
+
   root 'static_pages#index'
 end

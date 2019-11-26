@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+  <h4>Workouts</h4>
+
+<div class="booyah-box">
+  <%= @workout.title %> -
+  <%= @workout.reps %> -
+  <%= @workout.sets %> -
+  <%= @workout.description%> -
+  <%= @workout.lbs%> -
+  <%= @workout.miles%> -
+  <%= @workout.notes%> 
+</div>
+
+
+<% if current_user.trainer? %>
+  <%= link_to 'Edit', edit_trainer_workout_path(@workout) %> |
+<% elsif current_user.client? %>
+  <%= link_to 'Schedule Appointment', new_trainer_appointment_path %>
+<% end %>

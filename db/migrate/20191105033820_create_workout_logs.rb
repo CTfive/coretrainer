@@ -5,7 +5,7 @@ class CreateWorkoutLogs < ActiveRecord::Migration[5.2]
       t.integer :appointment_id, null: true
       t.datetime :date
       t.float :weight
-      t.integer :moode
+      t.integer :mood
       t.text :notes
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
