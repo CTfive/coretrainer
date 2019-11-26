@@ -5,8 +5,18 @@ class ApplicationController < ActionController::Base
 
 	protected
 
-		def configure_permitted_parameters
-			devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :username, :role, :email, :password)}
-      devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :username, :password, :email, :role)}
+	def after_sign_in_path_for(resource)
+		if resource.client?
+			"/client/#{resource.current_client.id}"
 		end
+	end
+
+	def current_client
+		@current_client||= Client.find(params[:id])
+	end
+
+	def configure_permitted_parameters
+		devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :username, :role, :email, :password)}
+		devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :username, :password, :email, :role)}
+	end
 end
