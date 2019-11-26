@@ -7,11 +7,23 @@ Trainer.destroy_all
 Appointment.destroy_all
 Workout.destroy_all
 
+User.create(name: "Michael", 
+username: "enviro", 
+email: "mr.enviro@gmail.com", 
+password: "password").clients.create(height: 5.2,
+birthday: "10/12/09", 
+injuries: "Broken ankle", 
+goals: "Loose weight", 
+athletic_history: "High school football", 
+current_work: "worked at 3 places", 
+location: "Denver", notes: "Long list of notes", 
+weight: 170)
+
 25.times do 
   User.create(name: Faker::Name.name, 
               username: Faker::Internet.username, 
               email: Faker::Internet.email, 
-              password: Faker::Internet.password)
+              password: "password")
 end
 
 25.times do 
@@ -34,8 +46,7 @@ User.client.each do |user|
 end
 
 Trainer.all.each do |trainer|
-  Workout.create(title: "Bewest workout ever", description: "Come and get YOKED", exercise: "lots of them", sets: 1, reps: 2.2, miles: 2.2,
-                lbs: 123.2, notes: "great work!")
+  trainer.workouts.create(title: "Bewest workout ever", description: "Come and get YOKED", exercise: "lots of them", sets: 1, reps: 2.2, miles: 2.2, lbs: 123.2, notes: "great work!")
 end
 
 Client.ids.each do |client|
