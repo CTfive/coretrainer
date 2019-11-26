@@ -1,5 +1,5 @@
 class Trainers::WorkoutsController < ApplicationController
-  before_action :athenticate_user!
+  before_action :authenticate_user!
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
   # GET /workouts
@@ -27,8 +27,8 @@ class Trainers::WorkoutsController < ApplicationController
   # POST /workouts
   # POST /workouts.json
   def create
-    @workout = current_trainer.workouts
-    @workout.create(workout_params)
+    @workout = current_trainer
+    @workout.workouts.create(workout_params)
 
     respond_to do |format|
       if @workout.save
