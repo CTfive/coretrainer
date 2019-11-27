@@ -38,7 +38,7 @@ class TrainersController < ApplicationController
   
       respond_to do |format|
         if @trainer.save
-          format.html { redirect_to trainer_path, notice: 'Trainer was successfully created.' }
+          format.html { redirect_to trainer_path(@trainer), notice: 'Trainer was successfully created.' }
           format.json { render :show, status: :created, location: @trainer }
         else
           format.html { render :new }
@@ -50,7 +50,6 @@ class TrainersController < ApplicationController
     # PATCH/PUT /trainers/1
     # PATCH/PUT /trainers/1.json
     def update
-      @trainer = set_trainer
       @trainer = current_user
   
       respond_to do |format|

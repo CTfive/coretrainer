@@ -7,6 +7,9 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Location</th>
+      <th scope="col">Specialties</th>
+      <th scope="col">Training Since</th>
+      <th scope="col">Availability</th> 
     </tr>
   </thead>
     <tbody>
@@ -14,7 +17,10 @@
       <tr>
         <td><%= link_to trainer.user.name, trainer_path(trainer) %></td>
         <td><%=raw trainer.location || "&nbsp;" %></td>
-        <% if @readonly %>
+        <td><%= raw trainer.specialties || "&nbsp;" %></td>
+        <td><%=raw trainer.started_training || "&nbsp;" %></td>
+        <td><%=raw trainer.availability || "&nbsp;" %></td>
+        <% if @trainer = current_trainer %>
         <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
         <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
