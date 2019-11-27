@@ -1,24 +1,27 @@
-<div class="booyah-box text-center col-10 offset-1">
+<br>
+<div class="booyah-box col-10 offset-1">
 	<%= simple_form_for(@trainer) do |f| %>
 		<%= f.error_notification %>
 		<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-			<%= simple_form_for trainers_path(@trainer) do |f| %> 
-			<%= f.error_notification %>
-			<%= f.input :athletic_background %>
-			<%= f.input :started_training %>
-			<%= f.input :specialties %>
-			<%= f.input :bio %>
-			<%= f.input :availability %>
-			<%= f.input :location %>
-			<%= f.input :certificate_id %>
-			<%= f.input :other_credentials %>
-			<%= f.button :submit, 'Submit your info', class: "btn-primary" %>
-			<%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-		<% end %>
-	</div>
-
-		<div class="form-actions">
-		<%= f.button :submit %>
+		
+		<div class="form-inputs">
+			<%= simple_form_for trainers_path(@trainer) do |f| %>
+				<%= f.error_notification %>
+				<%= f.input :athletic_background %>
+				<%= f.input :started_training, as: :date, order: [:month, :day, :year] %>
+				<%= f.input :specialties %>
+				<%= f.input :bio %>
+				<%= f.input :availability %>
+				<%= f.input :location %>
+				<%= f.input :certificate_id %>
+				<%= f.input :other_credentials %>
+				
+				<div class="form-actions">
+					<%= f.button :submit, 'Submit your info', class: "btn-primary" %>
+				</div>
+			<% end %>
 		</div>
 	<% end %>
 </div>
+<br>
+<br>

@@ -2,33 +2,33 @@
 
 <h4>Core Trainers</h4>
 
-<div class="booyah-box">
-  <table style="table-layout: fixed; width: 100%;"> 
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Bio</th>
-        <th>Trainer Workouts<th>
-        <th> &nbsp; </th>
-        <th> &nbsp; </th>
-        <th> &nbsp; </th>
-      </tr>
-    </thead>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Specialties</th>
+      <th scope="col">Training Since</th>
+      <th scope="col">Availability</th> 
+    </tr>
+  </thead>
     <tbody>
-      <% @trainers.each do |trainer| %>
-        <tr>
-          <td><%= trainer.user.name %></td>
-          <td><%=raw trainer.location || "&nbsp;" %></td>
-          <td><%= link_to 'View Trainer', trainer_path(trainer) %></td>
-          <% if @readonly %>
-          <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
-          <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <% @trainers.each do |trainer| %>
+      <tr>
+        <td><%= link_to trainer.user.name, trainer_path(trainer) %></td>
+        <td><%=raw trainer.location || "&nbsp;" %></td>
+        <td><%= raw trainer.specialties || "&nbsp;" %></td>
+        <td><%=raw trainer.started_training || "&nbsp;" %></td>
+        <td><%=raw trainer.availability || "&nbsp;" %></td>
+        <% if @trainer = current_trainer %>
+        <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <br>
 <br>
 <hr>
