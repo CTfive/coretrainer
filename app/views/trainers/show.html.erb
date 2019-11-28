@@ -1,20 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<div class="booyah-box">  
-  <strong>Name</strong> <br>
-  <%= @trainer.user.name %> <br>
-  <strong>Location</strong> <br>
-  <%= @trainer.location %> <br>
-  <strong>Bio</strong> <br>
-  <%=raw @trainer.bio || "&nbsp;" %>
-  <br>
-  <% if current_user.trainer?%>
-    <%= link_to 'Edit', edit_trainer_path(@trainer) %>
-    <%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Create Workout', new_trainer_workout_path(@trainer) %>
-  <% elsif current_user.client? %>
-    <%= link_to 'Trainer Workouts', trainer_workout_path(@trainer) %>
-  <% end %>
+
+<div class="container">
+  <div class="row booyah-box">
+    <div class="col-md-6 img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded">
+    </div>
+    <div class="">
+      <ul><%= link_to 'Edit', edit_trainer_path(@trainer), class: 'btn-sm btn btn-info' %></ul>
+      <ul><%= link_to 'Create Workout', new_trainer_workout_path(@trainer), class: 'btn-sm btn btn-info' %></ul>
+      <ul><%= link_to 'Trainer Workouts', trainer_workout_path(@trainer), class: 'btn-sm btn btn-info' %></ul>
+    </div>
+    <div class='row-md'>
+      <div class='row booyah-box'>
+        <blockquote>
+          <h1><%= @trainer.user.name %></h1>
+          <ul><small><cite title="Source Title"> serving the grater <%= @trainer.location %> area<i class="icon-map-marker"></i></cite></small></ul>
+          <br>
+          <ul>Certificate Id: <%= @trainer.certificate_id %></ul>
+          <ul>Member since: <%= @trainer.created_at %></ul>
+          <ul>Last Active: <%= @trainer.updated_at %></ul>
+          <ul>Email: <%= @trainer.user.email %></ul>
+          <ul>Specialities: <%= @trainer.specialties %></ul>
+
+        </blockquote>
+        <br>
+        <p>
+        Aka: <%= @trainer.user.username %><br><br>
+        Bio: <%= @trainer.bio %><br><br>
+        Other: <%= @trainer.other_credentials %><br><br></p>
+      </div>
+    </div>
+  </div>
 </div>
 <br>
 <br>
