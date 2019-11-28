@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
+
   before_action :authenticate_user!
-	before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   # GET /clients
   # GET /clients.json
@@ -11,7 +12,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
-  	 @client = set_client
+    @client = set_client
   end
 
   # GET /clients/new
@@ -21,7 +22,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
-  	@client = set_client
+    @client = set_client
   end
 
   # POST /clients
@@ -44,8 +45,8 @@ class ClientsController < ApplicationController
   # PATCH/PUT /clients/1
   # PATCH/PUT /clients/1.json
   def update
-  	@client = set_client
-  	@client.update(client_params)
+    @client = set_client
+    @client.update(client_params)
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to clients_url, notice: 'Client was successfully updated.' }
@@ -60,7 +61,7 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.json
   def destroy
-  	@client = set_client
+    @client = set_client
     @client.destroy
     respond_to do |format|
       format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
@@ -69,14 +70,14 @@ class ClientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
 
-    def set_client
-      @client = Client.find(params[:id])
-    end
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_params
-      params.require(:client).permit(:weight, :height, :athletic_background, :bio, :location, :goals, :work_history, :notes)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def client_params
+    params.require(:client).permit(:weight, :height, :athletic_background, :bio, :location, :goals, :work_history, :notes)
+  end
 end

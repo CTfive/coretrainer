@@ -2,28 +2,26 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" } 
   
   resources :appointments
+  resources :clients
+  resources :trainers
 
-  resources :users do
-    resources :trainers do
-      resources :clients 
-    end
+  resources :trainers do
+    resources :clients 
   end
 
-  resources :users do
-    resources :clients do 
-      resources :workoutlogs, module: :clients, except: [:destroy, :index]
-      resources :appointments, only: [:index, :show, :new]
-    end
+  resources :clients do 
+    resources :trainers
   end
 
-  resources :users do
-    resources :trainers do
-      resources :workouts, module: :trainers
-      resources :appointments, only: [:index, :show, :new]
-    end
+  resources :clients do 
+    resources :workoutlogs, module: :clients, except: [:destroy, :index]
+    resources :appointments, only: [:index, :show, :new]
   end
 
-  namespace :user do
-    root :to => "static_pages#index"
+  resources :trainers do
+    resources :workouts, module: :trainers
+    resources :appointments, only: [:index, :show, :new]
   end
+
+    root "static_pages#index"
 end
