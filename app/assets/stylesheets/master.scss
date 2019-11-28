@@ -127,10 +127,7 @@ h4{
 
 h5{
   font-family: 'Montserrat', sans-serif;
-  color: rgb(26, 139, 45);
-  text-shadow: 2px 2px 4px #4e4c4c;
   font-weight: bold;
-  font-size: 78px;
 }
 
 
@@ -210,6 +207,7 @@ html {
 
  .container {
    color: #317da3;
+   padding:5%;
  }
 
  .span4 img {
@@ -220,4 +218,13 @@ html {
 }
 .span4 .img-right {
   float: right;
+}
+
+.container .img{
+  text-align:center;
+}
+.container .details{
+  border-left:3px solid #ded4da;
+  font-size:15px;
+  font-weight:bold;
 }
