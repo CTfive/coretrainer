@@ -8,45 +8,45 @@ Appointment.destroy_all
 Workout.destroy_all
 
 User.create(name: "Michael", 
-username: "enviro", 
+username: Faker::Superhero.name, 
 email: "mr.enviro@gmail.com", 
 password: "password").clients.create(height: 5.2,
 birthday: "10/12/09", 
-injuries: "Broken ankle", 
-goals: "Loose weight", 
-athletic_history: "High school football", 
-current_work: "worked at 3 places", 
+injuries: "Fingers", 
+goals: "Climb more hard rocks", 
+athletic_history: "Rock climbing", 
+current_work: "Computer work", 
 location: "Denver", notes: "Long list of notes", 
 weight: 170)
 
 25.times do 
-  User.create(name: Faker::Name.name, 
-              username: Faker::Internet.username, 
+  User.create(name: Faker::FunnyName.name, 
+              username: Faker::Superhero.name, 
               email: Faker::Internet.email, 
               password: "password")
 end
 
 25.times do 
-  User.create(name: Faker::Name.name, 
-              username: Faker::Internet.username, 
+  User.create(name: Faker::FunnyName.name, 
+              username: Faker::Superhero.name, 
               email: Faker::Internet.email, 
-              password: Faker::Internet.password, 
+              password: "password", 
               role: "trainer")
 end
 
 User.trainer.each do |user|
-  user.trainers.create(athletic_background: "D1 Basketball player for Duke, also I've been training since before pre-k", started_training: "I've been athletic my whole life",
-      specialties: "I specialize in weight loss and powerlifting", bio: "My name is Jack, I'm from Denver, Colorado. I'm a very postive and active guy!",
-      availability: "Mon - Fridays", location: "Denver", certificate_id: "1232384824-324")
+  user.trainers.create(athletic_background: Faker::GreekPhilosophers.quote, started_training: Faker::Date.backward(days: 40),
+      specialties: Faker::Hipster.sentences, bio: Faker::TvShows::RickAndMorty.quote,
+      availability: Faker::Date.between(from: 2.days.ago, to: Date.today), location: Faker::Address.city, certificate_id: Faker::IDNumber.invalid)
 end
 
 User.client.each do |user|
-  user.clients.create(height: 5.2, birthday: "10/12/09", injuries: "Broken ankle", goals: "Loose weight", athletic_history: "High school football", 
-    current_work: "worked at 3 places", location: "Denver", notes: "Long list of notes", weight: 170)
+  user.clients.create(height: Faker::Number.decimal(l_digits: 1), birthday: Faker::Date.birthday(min_age: 18, max_age: 65), injuries: Faker::Hipster.sentences, goals: Faker::Movies::Lebowski.quote, athletic_history: Faker::GreekPhilosophers.quote, 
+    current_work: Faker::Commerce.department, location: Faker::Space.planet, notes: Faker::TvShows::FamilyGuy.quote, weight: Faker::Number.number(digits: 10))
 end
 
 Trainer.all.each do |trainer|
-  trainer.workouts.create(title: "Bewest workout ever", description: "Come and get YOKED", exercise: "lots of them", sets: 1, reps: 2.2, miles: 2.2, lbs: 123.2, notes: "great work!")
+  trainer.workouts.create(title: Faker::Ancient.god + "workout", description: Faker::TvShows::DumbAndDumber.quote, exercise: "The" + Faker::TvShows::Simpsons.character, sets: 5, reps: 5, miles: 2.2, lbs: Faker::Number.decimal(l_digits: 1), notes: Faker::TvShows::Simpsons.quote)
 end
 
 Client.ids.each do |client|

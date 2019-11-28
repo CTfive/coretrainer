@@ -20,7 +20,7 @@
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
-        <%case when user_signed_in? && current_user.client? %>
+        <% case when user_signed_in? && current_user.client? %>
           <li class="nav-item">
             <%= link_to 'Members', clients_path, class: 'nav-link' %>
           </li>
@@ -38,7 +38,7 @@
             <%= link_to 'My Clients',  trainer_client , class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'My Workouts', "#", class: 'nav-link' %>
+            <%= link_to 'My Workouts', user_trainer_workouts_path(@trainer), class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
