@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointment = Appointment.all
+    @appointment = Appointment.create(appointment_params)
   end
 
   def show
@@ -12,22 +12,17 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = current_client.current_trainer.appointments.create(appointment_params)
+    @appointment = Appointment.create(appointment_params)
+    if @appointment.valid?
+      redirect_to root_path
+    end
   end
 
 
 
   private
 
-  def current_client
-    @current_client ||= Client.find(params[:client_id]) 
-  end
-
-  def current_trainer
-    @current_trainer ||= Trainer.find(params[:trainer_id]) 
-  end
-
   def appointment_params
-    permit.require(:appointment).permit(:start, :end).merge(client_id: current_client, trainer_id: current_trainer)
+    params.require(:appointment).permit(:start_date, :end_date)
   end
 end
