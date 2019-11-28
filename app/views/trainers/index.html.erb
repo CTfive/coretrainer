@@ -20,10 +20,8 @@
         <td><%= raw trainer.specialties || "&nbsp;" %></td>
         <td><%=raw trainer.started_training || "&nbsp;" %></td>
         <td><%=raw trainer.availability || "&nbsp;" %></td>
-        <% if @trainer = current_trainer %>
         <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
         <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
       </tr>
     <% end %>
   </tbody>

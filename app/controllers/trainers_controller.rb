@@ -38,7 +38,7 @@ class TrainersController < ApplicationController
   
       respond_to do |format|
         if @trainer.save
-          format.html { redirect_to trainer_path(@trainer), notice: 'Trainer was successfully created.' }
+          format.html { redirect_to trainers_path(@trainer), notice: 'Trainer was successfully created.' }
           format.json { render :show, status: :created, location: @trainer }
         else
           format.html { render :new }
