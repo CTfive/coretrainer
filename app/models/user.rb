@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   enum role: %i[client trainer]
+
+  
 end
