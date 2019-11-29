@@ -28,8 +28,7 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = current_user
-    @client.clients.create(client_params)
+    @client = current_user.clients.create(client_params)
 
     respond_to do |format|
       if @client.save
