@@ -140,18 +140,29 @@
   <!-- About Feature -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="row-sm-4">
         <h1>CTFive</h1>
-        <h3>It started with 5</h3>
-        <p>It continues with 2...</p>
-        <br>
-        <button class="btn btn-primary btn-lg">Get in Touch</button>
+        <h3>Origin Story</h3>
+        <p>It all started as a group of 5 assigned to a team project as a capstone of their University of Denver Web Development Bootcamp experience. After a teammate dropped out within the first week, the four remaining persevered to the end of the project timeline. This project now reflects the work of two developers continuing to tinker and experiment implementing features with this ruby on rails website...</p>
       </div>
       <br>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-signal logo"></span>
-      </div>
     </div>
+  </div>
+
+  <div class="col-12 col-sm-3 text-center social">
+    <b>Contact</b>
+    <br>
+    <b>Developer</b>
+    <br>
+    <%= link_to 'http://github.com/Thirdeyeclimber', target: :_blank do %>
+      <span class="fa fa-github-square fa-2x social-button"></span>
+    <% end %>
+    <%= link_to 'https://www.linkedin.com/in/webdev10100/', target: :_blank do %>
+      <span class="fa fa-linkedin-square fa-2x"></span>
+    <% end %>
+    <%= link_to 'https://twitter.com/Thirdeyeclimber', target: :_blank do %>
+      <span class="fa fa-twitter-square fa-2x"></span>
+    <% end %>
   </div>
 
   <div class="container-fluid bg-grey">
@@ -160,8 +171,8 @@
         <span class="glyphicon glyphicon-globe logo"></span>
       </div>
       <div class="col-sm-8">
-        <h1>Our Values</h1>
-        <h3>Education | Technology | self suffenci </h3>
+        <h1>Our Mission</h1>
+        <h5>Enabling Personal Empowerment through<br>Education and Technology  </h5>
       </div>
     </div>
   </div>

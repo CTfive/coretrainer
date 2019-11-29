@@ -6,7 +6,7 @@
 			<%= simple_form_for trainers_path(@trainer) do |f| %> 
 			<%= f.error_notification %>
 			<%= f.input :athletic_background, as: :text %>
-			<%= f.input :started_training, as: :date %>
+			<%= f.input :started_training, as: :date, order: [:month, :day, :year] %>
 			<%= f.input :specialties, as: :text %>
 			<%= f.input :bio, as: :text %>
 			<%= f.input :availability, as: :text %>
