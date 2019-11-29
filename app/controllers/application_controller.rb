@@ -7,12 +7,10 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource)
 		if resource.client?
-			"/user"
+			"/#{resource.role}s/#{resource.id}"
+		else 
+			"#{resource.role}s/#{resource.id}"
 		end
-	end
-
-	def current_client
-		@current_client||= Client.find(params[:id])
 	end
 
 	def configure_permitted_parameters
