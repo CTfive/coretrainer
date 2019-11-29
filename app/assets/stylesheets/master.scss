@@ -16,6 +16,10 @@
   color: white;
 }
 
+hr {
+  background-color: white;
+}
+
 .hero {
   background: image_url('hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -24,6 +28,7 @@
   background-size: cover;
   height: 370px;
   box-shadow: 0px 3px 8px #2a2a2a;
+  width: auto;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar {
@@ -109,7 +114,6 @@ h1{
 
 h2{
   font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
 }
 
 h3 {
@@ -224,7 +228,11 @@ html {
   text-align:center;
 }
 .container .details{
-  border-left:3px solid #ded4da;
+  border-left:3px solid #8a30f1;
   font-size:15px;
   font-weight:bold;
+}
+
+.card-title {
+  color: rgb(120, 171, 236);
 }
