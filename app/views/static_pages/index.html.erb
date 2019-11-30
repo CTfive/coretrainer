@@ -5,7 +5,7 @@
     <br />
     <h1>Core Trainer</h1>
     <br />
-    <h2>A tool for Personal Trainers and Members to connect</h2>
+    <h2>A tool to connect with Personal Trainers</h2>
     <br />
     <div class="btn">
         <a class="btn btn-start" href="#down">Learn more</a>
@@ -92,94 +92,113 @@
       <%= link_to "Sign up", new_user_registration_path, class: 'btn-lg btn btn-warning button btn-block' %>
     </div>
   </div>
+  <br>
 
   <!-- Services Feature -->
   <div class="container-fluid text-center">
-    <h3>What we offer</h3>
+    <h2>What we offer</h2>
     <br><br>
     <div class="row">
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-off"></span>
-        <h3>POWER</h3>
-        <p>Lorem ipsum dolor sit amet..</p>
+        <h3>Guidance</h3>
+        <p>Help when you need it</p>
       </div>
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-heart"></span>
-        <h3>LOVE</h3>
-        <p>Lorem ipsum dolor sit amet..</p>
+        <h3>Compassion</h3>
+        <p>We all started with the first step</p>
       </div>
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-lock"></span>
-        <h3>JOB DONE</h3>
-        <p>Lorem ipsum dolor sit amet..</p>
+        <h3>Strength</h3>
+        <p>Fitness approach to health</p>
       </div>
     </div>
     <br><br>
     <div class="row">
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-leaf"></span>
-        <h3>GREEN</h3>
-        <p>Lorem ipsum dolor sit amet..</p>
+        <h3>Instruction</h3>
+        <p>One on one training</p>
       </div>
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-certificate"></span>
-        <h3>CERTIFIED</h3>
-        <p>Lorem ipsum dolor sit amet..</p>
+        <h3>Classes</h3>
+        <p>Enjoy group sessions</p>
       </div>
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-wrench"></span>
-        <h3>HARD WORK</h3>
-        <p>Lorem ipsum dolor sit amet..</p>
+        <h3>Community</h3>
+        <p>Meet local people</p>
       </div>
     </div>
   </div>
+  <br>
+  <div class="image">
+    <img src="https://images.unsplash.com/photo-1522898467493-49726bf28798?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80">
+  </div>
+  
   <br><br>
   <hr><hr>
   <br><br>
   
   <!-- About Feature -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="row-sm-4">
+  <div class="container-fluid row">
+    <div class="col-md-8">
+      <div class="row-sm-8">
         <h1>CTFive</h1>
-        <h3>Origin Story</h3>
-        <p>It all started as a group of 5 assigned to a team project as a capstone of their University of Denver Web Development Bootcamp experience. After a teammate dropped out within the first week, the four remaining persevered to the end of the project timeline. This project now reflects the work of two developers continuing to tinker and experiment implementing features with this ruby on rails website...</p>
+        <h3>Web Development Team</h3>
+        <br>
+        <p>This custom website started as a group project, a capstone to our University of Denver Web Development boot camp. After a teammate dropped out, the four remaining persevered to the end of the project timeline. Gaining valuable experience and on the job practice.<p>
+        <p>Michael and Zach continue to tinker and experiment...</p>
       </div>
+      <br><br>
+      <h1>Our Mission</h1>
+      <h5>Enabling Personal Empowerment through Education, Technology, and Engaging User Experiences</h5>
       <br>
     </div>
-  </div>
 
-  <div class="col-12 col-sm-3 text-center social">
-    <b>Contact</b>
-    <br>
-    <b>Developer</b>
-    <br>
-    <%= link_to 'http://github.com/Thirdeyeclimber', target: :_blank do %>
-      <span class="fa fa-github-square fa-2x social-button"></span>
-    <% end %>
-    <%= link_to 'https://www.linkedin.com/in/webdev10100/', target: :_blank do %>
-      <span class="fa fa-linkedin-square fa-2x"></span>
-    <% end %>
-    <%= link_to 'https://twitter.com/Thirdeyeclimber', target: :_blank do %>
-      <span class="fa fa-twitter-square fa-2x"></span>
-    <% end %>
-  </div>
-
-  <div class="container-fluid bg-grey">
-    <div class="row">
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-globe logo"></span>
+    
+    <div class="col-sm-4 text-right">
+      <div class="container image">
+        <img src="https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/denver-switchup-thumbnail-a/original.png?1560210160">
       </div>
-      <div class="col-sm-8">
-        <h1>Our Mission</h1>
-        <h5>Enabling Personal Empowerment through<br>Education and Technology  </h5>
+      
+      <div class="container">
+        <%= link_to 'https://github.com/JessiCalicotte', target: :_blank do %>
+          <span class="fa fa-github-square fa-2x social-button"></span>
+        <% end %>
+        <br>
+        <b>Jessi Calicotte</b>
+        <br><br>
+
+        <%= link_to 'https://github.com/kbutkus', target: :_blank do %>
+          <span class="fa fa-github-square fa-2x social-button"></span>
+        <% end %>
+        <%= link_to 'https://www.linkedin.com/in/katebutkus/', target: :_blank do %>
+          <span class="fa fa-linkedin-square fa-2x"></span>
+        <% end %>
+        <br>
+        <b>Kate Butkus</b>
+        <br><br>
+
+        <%= link_to 'https://github.com/SRSSavage', target: :_blank do %>
+          <span class="fa fa-github-square fa-2x social-button"></span>
+        <% end %>
+        <%= link_to 'https://www.linkedin.com/in/zach-hewitt-a621b6189/', target: :_blank do %>
+          <span class="fa fa-linkedin-square fa-2x"></span>
+        <% end %>
+        <br>
+        <b>Zach Hewitt</b>
+        <br><br>
+
+        <%= link_to 'http://github.com/Thirdeyeclimber', target: :_blank do %>
+          <span class="fa fa-github-square fa-2x social-button"></span>
+        <% end %>
+        <%= link_to 'https://www.linkedin.com/in/webdev10100/', target: :_blank do %>
+          <span class="fa fa-linkedin-square fa-2x"></span>
+        <% end %>
+        <%= link_to 'https://twitter.com/Thirdeyeclimber', target: :_blank do %>
+          <span class="fa fa-twitter-square fa-2x"></span>
+        <% end %>
+        <br>
+        <b>Michael Day</b>
       </div>
     </div>
-  </div>
-  <br><br>
-  <hr><hr>
-
-  <div class="image">
-    <img class="w-60 p-4" src="https://images.unsplash.com/photo-1522898467493-49726bf28798?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80">
   </div>
 </div>
