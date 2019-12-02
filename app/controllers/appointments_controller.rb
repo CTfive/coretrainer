@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:index, :show, :edit]
   before_action :set_trainer, only: [:index, :show, :edit]
-
+ 
   def index
     @appointment = Appointment.all
   end
@@ -12,13 +12,11 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @trainer = set_trainer
-    
     @appointment = Appointment.new
   end
 
   def create
-    @appointment = current_user.clients.last.trainers.last.appointments.create(appointment_params.merge(client_id: current_user.clients.last.id))
+    @appointment = current_client.current_trainer.appointments.create(appointment_params.merge(trainer_id: current_trainer))
     if @appointment.valid?
       redirect_to root_path
     else
@@ -28,20 +26,12 @@ class AppointmentsController < ApplicationController
   
   private
 
-  def set_client 
-    @client = Client.find_by(id: params[:client_id])
+  def current_trainer
+    @current_trainer||= Trainer.find_by(id: params[:id])
   end
-
-  def set_trainer
-    @trainer = Client.find_by(id: params[:trainer_id])
-  end
-
+  
   def current_client
     @current_client||= Client.find(params[:id])
-  end
-
-  def current_trainer
-    @current_trainer||= Trainer.find(params[:id])
   end
 
   def appointment_params
