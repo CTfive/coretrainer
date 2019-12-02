@@ -2,34 +2,31 @@
 <p id="notice"><%= notice %></p>
 
 <h4>Core Members</h4>
-<div class="booyah-box">
-  <table style="table-layout: fixed; width: 100%;"> 
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Goals</th>
-        <th> &nbsp; </th>
-        <th> &nbsp; </th>
-        <th> &nbsp; </th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @clients.each do |client| %>
-        <tr>
-          <td><%= client.user.name %></td>
-          <td><%=raw client.location || "&nbsp;" %></td>
-          <td><%=raw client.goals || "&nbsp;" %></td>
-          <td><%= link_to 'Show', client_path(client) %></td>
-          <% if @readonly%>
-          <td><%= link_to 'Edit', edit_client_path(client) %></td>
-          <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<table class="table table-hover table-dark booyah-box">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Goals</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.user.name %></td>
+        <td><%=raw client.location || "&nbsp;" %></td>
+        <td><%=raw client.goals || "&nbsp;" %></td>
+        <td><%= link_to 'Show', client_path(client) %></td>
+        <% if @readonly%>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <br>
 <%= link_to 'View Trainers', trainers_path , class: 'btn btn-success button btn-md' %>
 <br>

@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h4>Core Trainers</h4>
-
-<table class="table table-hover table-dark">
+<table class="table table-hover table-dark booyah-box">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -12,7 +11,7 @@
       <th scope="col">Availability</th> 
     </tr>
   </thead>
-    <tbody>
+  <tbody>
     <% @trainers.each do |trainer| %>
       <tr>
         <td><%= link_to trainer.user.name, trainer_path(trainer) %></td>
