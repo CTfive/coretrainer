@@ -5,8 +5,9 @@ We didn't get as far as we had planned but we decided to go in a different direc
 
 -Zach, Michael, Kate, and Jess
 
-![](app/assets/images/Coretrainer.png)
 
-<h3>Deployed to Heroku here! <a href="https://coretrainer.herokuapp.com/">Live Demo</h3>
+<h3>Deployed to Heroku here! <a href="https://coretrainer.herokuapp.com/">Live Demo</a></h3>
+
+![](app/assets/images/Coretrainer.png)
 
 Version ruby 2.5.3p105
