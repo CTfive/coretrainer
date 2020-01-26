@@ -1,5 +1,5 @@
 # README
 
-![](images/coretrainer.png)
+![](assets/images/coretrainer.png)
 
 Version ruby 2.5.3p105
