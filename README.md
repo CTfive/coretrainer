@@ -1,5 +1,3 @@
-# README
-
 <h1>Hello and Welcome</h1>
 
 This website is the creation of CTfive, an agile development group that met for 8 weeks as a capstone to a coding bootcamp.
